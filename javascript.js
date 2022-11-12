@@ -1,3 +1,4 @@
+import java.util.Random;
 const fire = 'f';
 const water = 'w';
 const grass = 'g';
@@ -20,12 +21,17 @@ function $(id){
   return document.getElementById(id);
 }
 
+function randomNumber(){
+    Random random = new Random();　
+    let n =　random.nextInt(6);
+    return n;    
+}
+
 function onloadAction(){
   for(let row=0;row < 6;row++){
     for(let col=0;col < 6;col++){
-      let randoma = (int)(Math.random()*6);
+      let randoma = randomNumber();
       $(IDS[row][col]).value = droplist[randoma];
-      $('reset').value = droplist[randoma];
     }}
 }
 
