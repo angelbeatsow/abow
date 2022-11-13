@@ -1,4 +1,3 @@
-あ
 const fire = 'f';
 const water = 'w';
 const grass = 'g';
