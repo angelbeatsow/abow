@@ -111,7 +111,7 @@ function untilClick(event){
 	console.log('x:' + x + 'y:' + y);
   
   //zahyou ni aru botan no hantei
-  for(let i = 0;i < 35;i++){
+  for(let i = 0;i < 36;i++){
     let xx = i % 6;
     xx = xx * 80 + 40;
     let yy =parseInt( i / 6 );
@@ -140,7 +140,7 @@ function untilClick(event){
 }
 
 function resetAction(){
-  let Rnumber = 1;
+  Rnumber = 1;
   for(let row=0;row < 36;row++){
       let randoma = randomNumber();
       $(IDS[row]).value = droplist[randoma];
@@ -158,6 +158,7 @@ function onloadAction(){
       
     }
   $('reset').onclick = resetAction;
+  resetAction();
     }
   
 window.onload = onloadAction();
