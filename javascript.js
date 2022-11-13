@@ -1,3 +1,4 @@
+
 const fire = 'f';
 const water = 'w';
 const grass = 'g';
@@ -159,4 +160,4 @@ function onloadAction(){
   $('reset').onclick = resetAction;
     }
   
-window.onload = onloadAction;
+window.onload = onloadAction();
