@@ -52,7 +52,6 @@ function clickAction(event){
   $(id).value = 'x';
   console.log(lastPoint[0]);
   console.log(lastPoint[1]);
-  console.log(window.event.button);
 }
 
 function clickendAction(event){
@@ -105,12 +104,12 @@ function untilClick(event){
    		y = event.clientY;
 	}
 
-	console.log('x : ' + x + ', y : ' + y);
+	console.log('x:' + x + 'y:' + y);
   
   //zahyou ni aru botan no hantei
   for(let i = 0;i < 35;i++){
     let xx = i % 6;
-    xx = xx * 80 + 20;
+    xx = xx * 80 + 120;
     let yy =parseInt( i / 6 );
     yy = yy * 80 + 40;
     if(x > xx && x < xx + 50){
@@ -123,8 +122,10 @@ function untilClick(event){
         if(nnumber == lnumber - 7 ||nnumber == lnumber - 6 ||nnumber == lnumber - 5 ||
            nnumber == lnumber - 1 ||nnumber == lnumber + 1 ||nnumber == lnumber + 5 ||
            nnumber == lnumber + 6 ||nnumber == lnumber + 7){
+             console.log('rinsetsu');
              if($(nowbotton).value == lastPoint[1]){
-               lastPoint[0] = nowbotton
+               console.log('dousyoku');
+               lastPoint[0] = nowbotton;
                $(nowbotton).value = 'x';
                isDissaper = true;
              }
@@ -139,7 +140,7 @@ function resetAction(){
   for(let row=0;row < 36;row++){
       let randoma = randomNumber();
       $(IDS[row]).value = droplist[randoma];
-}
+}}
 
 function onloadAction(){
   for(let row=0;row < 36;row++){
