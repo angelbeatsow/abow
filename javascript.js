@@ -111,7 +111,7 @@ function untilClick(event){
     let xx = i % 6;
     xx = xx * 80 + 40;
     let yy =parseInt( i / 6 );
-    yy = yy * 80 + 22;
+    yy = yy * 80 + 30;
     if(x > xx && x < xx + 50){
       if(y > yy && y < yy + 50){
         let nowbotton = IDS[i];
