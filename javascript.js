@@ -1,4 +1,4 @@
-
+あ
 const fire = 'f';
 const water = 'w';
 const grass = 'g';
@@ -6,6 +6,7 @@ const dark = 'd';
 const light = 'l';
 const heal = 'h';
 const droplist = [fire,water,grass,dark,light,heal]
+const dropcolor = ['red','blue','green','purple','yellow','pink']
 const IDS = [
 'b01','b02','b03','b04','b05','b06',
 'b07','b08','b09','b10','b11','b12',
@@ -65,7 +66,9 @@ function clickendAction(event){
           for(let row=6;row < 36;row++){
             if($(IDS[row]).value == 'x'){
               $(IDS[row]).value = $(IDS[row - 6]).value
+              $(IDS[row]).style.backgroundColor = $(IDS[row - 6]).style.backgroundColor;
               $(IDS[row - 6]).value = 'x'
+              $(IDS[row - 6]).style.backgroundColor = 'black';
             }
           }
         }
@@ -74,6 +77,7 @@ function clickendAction(event){
             if($(IDS[row]).value == 'x'){
               let randoma = randomNumber();
               $(IDS[row]).value = droplist[randoma];
+              $(IDS[row]).style.backgroundColor = dropcolor[randoma];
             }}
         isRun = true;
         }else{
@@ -111,7 +115,7 @@ function untilClick(event){
     let xx = i % 6;
     xx = xx * 80 + 40;
     let yy =parseInt( i / 6 );
-    yy = yy * 80 + 50;
+    yy = yy * 80 + 18;
     if(x > xx && x < xx + 50){
       if(y > yy && y < yy + 50){
         let nowbotton = IDS[i];
@@ -140,12 +144,14 @@ function resetAction(){
   for(let row=0;row < 36;row++){
       let randoma = randomNumber();
       $(IDS[row]).value = droplist[randoma];
+      $(IDS[row]).style.backgroundColor = dropcolor[randoma];
 }}
 
 function onloadAction(){
   for(let row=0;row < 36;row++){
       let randoma = randomNumber();
       $(IDS[row]).value = droplist[randoma];
+      $(IDS[row]).style.backgroundColor = dropcolor[randoma];
       $(IDS[row]).addEventListener('touchstart',clickAction);
       $(IDS[row]).addEventListener('touchend',clickendAction);
       $(IDS[row]).addEventListener('touchmove',untilClick);
