@@ -15,11 +15,22 @@ const IDS = [
 'b25','b26','b27','b28','b29','b30',
 'b31','b32','b33','b34','b35','b36'
 ]
+const sesource = [
+        'https://raw.githubusercontent.com/angelbeatsow/abow/main/_1do.wav',
+	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_2re.wav',
+	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_3mi.wav',
+	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_4fa.wav',
+	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_5so.wav',
+	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_6ra.wav',
+	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_7si.wav',
+	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_8do.wav',
+]
 
 let isRun = true;
 let isRunning = false;
 let isDissaper = false;
 let Rnumber = 1;
+let senumber = 0;
 let lastPoint = [0,0];
 
 function $(id){
@@ -44,6 +55,7 @@ function clickAction(event){
     return;
   }
   event.preventDefault();
+  senumber = 0;
   isDissaper = false;
   let id = event.target.id;
   let object = $(id).value;
@@ -129,6 +141,8 @@ function untilClick(event){
              console.log('rinsetsu');
              if($(nowbotton).value == lastPoint[1]){
                console.log('dousyoku');
+		     //sentaku sareta
+		     soundEffect();
                lastPoint[0] = nowbotton;
                $(nowbotton).value = 'x';
                isDissaper = true;
@@ -138,6 +152,13 @@ function untilClick(event){
     }
   }
 }
+
+function soundEffect(){
+	var audio = document.createElement('se');
+	audio.src = sesorce[senumber % 8];
+	audio.play();
+	senumber++;
+ }
 
 function resetAction(){
   Rnumber = 1;
