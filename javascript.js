@@ -31,7 +31,6 @@ let isRunning = false;
 let isDissaper = false;
 let Rnumber = 1;
 let senumber = 0;
-let seflag = 0;
 let lastPoint = [0,0];
 
 function $(id){
@@ -57,7 +56,6 @@ function clickAction(event){
   }
   event.preventDefault();
   senumber = 0;
-  seflag = 0;
   isDissaper = false;
   let id = event.target.id;
   let object = $(id).value;
@@ -146,6 +144,7 @@ function untilClick(event){
                
 		     //sentaku sareta
                lastPoint[0] = nowbotton;
+		$(nowbotton).value = 'x';
                isDissaper = true;
                
                //se no syori
@@ -153,29 +152,17 @@ function untilClick(event){
                	var audio = new Audio;
                	audio.src = sesource[senumber % 8];
                senumber++;
-               console.log('senuber is' + senumber)
+               console.log('senuber is' + senumber);
                
-               var div = $(nowbotton);
-               var mo = new MutationObserver(function() {
-                 console.log('se done!')
-                 audio.play();
-               });
-               var config = {
-                 childList: true
-               };
-               mo.observe(div, config);
+               audio.autoplay = true;
+               audio.load();
                
-               $(nowbotton).addEventListener('change',function (){
-                 console.log('se done!')
-                 audio.play();
-               })
                  //se no syori owari
                  
-                 $(nowbotton).value = 'x';
+                 
                }
                  
              }
-        seflag = 0;
       }
     }
   }
