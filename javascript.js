@@ -31,6 +31,7 @@ let isRunning = false;
 let isDissaper = false;
 let Rnumber = 1;
 let senumber = 0;
+let seflag = 0;
 let lastPoint = [0,0];
 
 function $(id){
@@ -56,6 +57,7 @@ function clickAction(event){
   }
   event.preventDefault();
   senumber = 0;
+  seflag = 0;
   isDissaper = false;
   let id = event.target.id;
   let object = $(id).value;
@@ -141,24 +143,44 @@ function untilClick(event){
              console.log('rinsetsu');
              if($(nowbotton).value == lastPoint[1]){
                console.log('dousyoku');
+               
 		     //sentaku sareta
-		     soundEffect();
                lastPoint[0] = nowbotton;
-               $(nowbotton).value = 'x';
                isDissaper = true;
+               
+               //se no syori
+               console.log('se effect!')
+               	var audio = new Audio;
+               	audio.src = sesource[senumber % 8];
+               senumber++;
+               console.log('senuber is' + senumber)
+               
+               var div = $(nowbotton);
+               var mo = new MutationObserver(function() {
+                 console.log('se done!')
+                 audio.play();
+               });
+               var config = {
+                 childList: true
+               };
+               mo.observe(div, config);
+               
+               $(nowbotton).addEventListener('change',function (){
+                 console.log('se done!')
+                 audio.play();
+               })
+                 //se no syori owari
+                 
+                 $(nowbotton).value = 'x';
+               }
+                 
              }
-           }
+        seflag = 0;
       }
     }
   }
 }
 
-function soundEffect(){
-	var audio = document.createElement('se');
-	audio.src = sesource[senumber % 8];
-	audio.play();
-	senumber++;
- }
 
 function resetAction(){
   Rnumber = 1;
@@ -176,10 +198,8 @@ function onloadAction(){
       $(IDS[row]).addEventListener('touchstart',clickAction);
       $(IDS[row]).addEventListener('touchend',clickendAction);
       $(IDS[row]).addEventListener('touchmove',untilClick);
-      
     }
   $('reset').onclick = resetAction;
-  resetAction();
-    }
+  }
   
 window.onload = onloadAction();
