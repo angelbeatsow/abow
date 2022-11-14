@@ -155,7 +155,7 @@ function untilClick(event){
 
 function soundEffect(){
 	var audio = document.createElement('se');
-	audio.src = sesorce[senumber % 8];
+	audio.src = sesource[senumber % 8];
 	audio.play();
 	senumber++;
  }
