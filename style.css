@@ -1,5 +1,5 @@
 　
-body {
+body{
     background: black;
     width: 600px;
     height: 700px;
@@ -9,9 +9,9 @@ body {
     }
 
 
-input {
-  
-    font-size: 30px;}
+input{
+  font-size: 30px;
+}
 
 .waku{
   width: 50px;
@@ -26,7 +26,7 @@ input {
   margin-bottom: 40px;
 }
 
-.umekomi iframe {
+.umekomi iframe{
 width: 600px;
 aspect-ratio: 16/9;
 }
