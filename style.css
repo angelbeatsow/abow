@@ -1,7 +1,7 @@
-　body {
+　
+body {
     width: 600px;
     height: 700px;
-    overflow: hidden;
     overscroll-behavior-y: none;
     text-align: center;
     font-size: 30px;
@@ -19,6 +19,11 @@ input {
   margin-right: 25px;
   margin-bottom: -1px;
   background: gray;
+}
+
+.umekomi iframe {
+width: 100%;
+height: 100%;
 }
 
 input[value='f']{
