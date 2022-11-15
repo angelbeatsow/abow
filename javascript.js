@@ -6,7 +6,7 @@ const dark = 'd';
 const light = 'l';
 const heal = 'h';
 const droplist = [fire,water,grass,dark,light,heal]
-const dropcolor = ['rgb(237, 106, 106)','rgb(86, 167, 255)','rgb(133, 241, 131)','rgb(166, 84, 225)','rgb(255, 232, 75)','rgb(255, 185, 231)']
+const dropcolor = ['rgb(237, 106, 106)','rgb(86, 167, 255)','rgb(133, 241, 131)','rgb(166, 84, 225)','rgb(255, 232, 75)','rgb(255, 85, 163)']
 const IDS = [
 'b01','b02','b03','b04','b05','b06',
 'b07','b08','b09','b10','b11','b12',
