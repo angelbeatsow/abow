@@ -210,6 +210,7 @@ function untilClick(event){
                senumber++;
                console.log('senuber is' + senumber);
                
+		     audio.volume = 0.5;
                audio.autoplay = true;
                audio.load();
                
