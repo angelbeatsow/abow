@@ -2,7 +2,6 @@
 body {
     width: 600px;
     height: 700px;
-    overflow: hidden;
     overscroll-behavior-y: none;
     text-align: center;
     font-size: 30px;
