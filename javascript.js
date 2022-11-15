@@ -25,7 +25,7 @@ const sesource = [
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_7si.wav',
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_8do.wav',
 ]
-const umekomiTime = ['https://www.youtube.com/embed/JMzDWbqROT4?start=10',
+const umekomiTime = ['https://www.youtube.com/embed/JMzDWbqROT4?start=10?end=260',
 'https://www.youtube.com/embed/JMzDWbqROT4?start=261?end=499',
 'https://www.youtube.com/embed/JMzDWbqROT4?start=500?end=759',
 'https://www.youtube.com/embed/JMzDWbqROT4?start=760?end=1047',
