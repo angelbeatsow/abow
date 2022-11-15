@@ -1,11 +1,12 @@
 　
 body {
+    background: black
     width: 600px;
     height: 700px;
     overscroll-behavior-y: none;
     text-align: center;
     font-size: 30px;
-    background: black}
+    }
 
 
 input {
