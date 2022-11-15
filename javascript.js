@@ -25,6 +25,30 @@ const sesource = [
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_7si.wav',
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_8do.wav',
 ]
+const umekomiTime = ['https://www.youtube.com/embed/JMzDWbqROT4?start=10',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=261',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=500',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=760',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=1048',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=1306',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=1607',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=2231',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=2512',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=2804',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=3041',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=3336',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=3561',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=3885',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=4221',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=4572',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=4891',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=5249',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=5535',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=5774',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=6024',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=6314',
+'https://www.youtube.com/embed/JMzDWbqROT4?start=6675',
+]
 
 let isRun = true;
 let isRunning = false;
@@ -144,7 +168,7 @@ function untilClick(event){
                
 		     //sentaku sareta
                lastPoint[0] = nowbotton;
-		$(nowbotton).value = 'x';
+               $(nowbotton).value = 'x';
                isDissaper = true;
                
                //se no syori
@@ -158,8 +182,6 @@ function untilClick(event){
                audio.load();
                
                  //se no syori owari
-                 
-                 
                }
                  
              }
@@ -176,6 +198,14 @@ function resetAction(){
       $(IDS[row]).value = droplist[randoma];
       $(IDS[row]).style.backgroundColor = dropcolor[randoma];
 }}
+function bgmChange(){
+  let select = $('bgmSelect').value
+  for(let aunt = 1;aunt < 23;aunt++){
+    if(select == 'm0' + aunt ||select == 'm' + aunt){
+      let selectNumber = aunt - 1;
+      $('umekomidouga').src = umekomiTime[selectNumber];
+}}}
+
 
 function onloadAction(){
   for(let row=0;row < 36;row++){
@@ -187,6 +217,7 @@ function onloadAction(){
       $(IDS[row]).addEventListener('touchmove',untilClick);
     }
   $('reset').onclick = resetAction;
+  $('bgmSelectButton').onclick = bgmChange;
   }
   
 window.onload = onloadAction();
