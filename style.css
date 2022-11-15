@@ -1,6 +1,6 @@
 　
 body{
-    background: black;
+    background-color: black;
     width: 600px;
     height: 700px;
     overscroll-behavior-y: none;
