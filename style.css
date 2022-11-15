@@ -28,20 +28,20 @@ aspect-ratio: 16/9;
 }
 
 input[value='f']{
-  color: red;
+  color: rgb(237, 106, 106);
 }
 input[value='w']{
-  color: blue;
+  color: rgb(86, 167, 255);
 }
 input[value='g']{
-  color: green;
+  color: rgb(133, 241, 131);
 }
 input[value='d']{
-  color: purple;
+  color: rgb(166, 84, 225);
 }
 input[value='l']{
-  color: yellow;
+  color: rgb(255, 232, 75);
 }
 input[value='h']{
-  color: pink;
+  color: rgb(255, 185, 231);
 }
