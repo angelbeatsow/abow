@@ -247,7 +247,6 @@ function onloadAction(){
     }
   $('reset').onclick = resetAction;
   $('bgmSelectButton').onclick = bgmChange;
-	document.bgColor = black;
   }
   
 window.onload = onloadAction();
