@@ -233,6 +233,7 @@ var tag = document.createElement('script');
 var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('umekomidouga', {
+	controls = 0
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -263,7 +264,7 @@ function bgmChange(){
 	    player.seekTo(startbyou[douganumber])
 	    player.cueVideoById({'videoId':'JMzDWbqROT4',
        'startSeconds': startbyou[douganumber],
-       'endSeconds': startbyou[douganumber + 1] - 1,
+       'endSeconds': startbyou[douganumber + 1] - 8,
    });
         }
 	    
