@@ -62,8 +62,11 @@ function $(id){
 }
 
 function randomNumber(){　
-    Rnumber = Rnumber + 1;
-	Rnumber = Math.random()*6;
+    Rnumber = 10;
+	
+	while(Rnumber > 7){
+     Rnumber = Math.random()*10;
+}
     return Math.trunc( Rnumber );    
 }
 
