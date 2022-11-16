@@ -22,9 +22,13 @@ input{
   margin-bottom: 40px;
 }
 
-.umekomi iframe{
-width: 600px;
-aspect-ratio: 16/9;
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.controller {
+  position: fixed;
+  top: 0;
 }
 
 input[value='f']{
