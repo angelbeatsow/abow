@@ -238,7 +238,7 @@ var player;
 function onPlayerReady(event) {
         player.cueVideoById({'videoId':'JMzDWbqROT4',
        'startSeconds': startbyou[douganumber],
-       'endSeconds': startbyou[douganumber + 1] - 1,
+       'endSeconds': startbyou[douganumber + 1] - 8,
    });
       }
 
