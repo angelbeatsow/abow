@@ -63,7 +63,8 @@ function $(id){
 
 function randomNumber(){　
     Rnumber = Rnumber + 1;
-    return Rnumber % 6;    
+	Rnumber = Math.random()*6;
+    return (int) Rnumber;    
 }
 
 function suujihenkan(suuji){
