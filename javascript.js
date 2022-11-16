@@ -64,7 +64,7 @@ function $(id){
 function randomNumber(){　
     Rnumber = Rnumber + 1;
 	Rnumber = Math.random()*6;
-    return (int) Rnumber;    
+    return parseInt( Rnumber );    
 }
 
 function suujihenkan(suuji){
