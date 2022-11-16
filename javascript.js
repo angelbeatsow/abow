@@ -262,7 +262,7 @@ function bgmChange(){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
 	    player.seekTo(startbyou[douganumber])
-        });
+        }
 	    
-}}}
+}}
 
