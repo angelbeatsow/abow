@@ -52,7 +52,6 @@ function suujihenkan(suuji){
   }
 }
 
-var lastxy ;
   let lastx = 0;
   let lasty = 0;
   let lnumber = 0;
@@ -73,10 +72,10 @@ function clickAction(event){
   console.log(lastPoint[0]);
   console.log(lastPoint[1]);
 	
-	lastxy = $(lastPoint[0]).getBoundingClientRect();
+   var lastxy = $(id).getBoundingClientRect();
    lastx = lastxy.left;
    lasty = lastxy.top;
-   lnumber = suujihenkan(lastPoint[0]);
+   lnumber = suujihenkan(id);
 }
 
 function clickendAction(event){
@@ -137,7 +136,7 @@ function untilClick(event){
   //zahyou ni aru botan no hantei
   if(x > lastx - 80 && x < lastx + 130 && y > lasty - 80 && y < lasty +130){
       
-      let nnumber = 0;
+      let nnumber = 100;
 	    
       if(x < lastx - 30){
         if(y < lasty - 30){
@@ -146,13 +145,15 @@ function untilClick(event){
           nnumber = lnumber - 1;
         }else if(y > lasty + 80){
           nnumber = lnumber + 5;
-        }
+        }else{
+          return;}
       }else if(x > lastx && x < lastx + 50){
         if(y < lasty - 30){
           nnumber = lnumber - 6;
         }else if(y > lasty + 80){
           nnumber = lnumber + 6;
-        }
+        }else{
+          return;}
       }else if(x > lastx + 80){
         if(y < lasty - 30){
           nnumber = lnumber - 5;
@@ -160,7 +161,8 @@ function untilClick(event){
           nnumber = lnumber + 1;
         }else if(y > lasty + 80){
           nnumber = lnumber + 7;
-        }
+        }else{
+          return;}
       }
   }else{
     return;
