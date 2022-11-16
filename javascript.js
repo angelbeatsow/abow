@@ -232,7 +232,7 @@ var tag = document.createElement('script');
 
 var player;
       function onYouTubeIframeAPIReady() {
-        player = new YT.Player(umekomidouga, {
+        player = new YT.Player('umekomidouga', {
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -261,7 +261,7 @@ function bgmChange(){
   for(let aunt = 1;aunt < 24;aunt++){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
-      player = new YT.Player(umekomidouga, {
+      player = new YT.Player('umekomidouga', {
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
