@@ -233,7 +233,6 @@ var tag = document.createElement('script');
 var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('umekomidouga', {
-	controls = 0
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
