@@ -244,7 +244,7 @@ var player;
 function onPlayerReady(event) {
         player.cueVideoById({'videoId':'JMzDWbqROT4',
        'startSeconds': startbyou[douganumber],
-       'endSeconds': startbyou[douganumber + 1] - 8,
+       'endSeconds': startbyou[douganumber + 1] - 3,
    });
       }
 
@@ -264,7 +264,7 @@ function bgmChange(){
 	    player.seekTo(startbyou[douganumber])
 	    player.cueVideoById({'videoId':'JMzDWbqROT4',
        'startSeconds': startbyou[douganumber],
-       'endSeconds': startbyou[douganumber + 1] - 8,
+       'endSeconds': startbyou[douganumber + 1] - 3,
    });
         }
 	    
