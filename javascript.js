@@ -52,10 +52,6 @@ function suujihenkan(suuji){
   }
 }
 
-  let lastx = 0;
-  let lasty = 0;
-  let lnumber = 0;
-
 function clickAction(event){
   if(isRun == false){
     return;
@@ -71,11 +67,6 @@ function clickAction(event){
   $(id).value = 'x';
   console.log(lastPoint[0]);
   console.log(lastPoint[1]);
-	
-   var lastxy = $(id).getBoundingClientRect();
-   lastx = lastxy.left;
-   lasty = lastxy.top;
-   lnumber = suujihenkan(id);
 }
 
 function clickendAction(event){
@@ -134,10 +125,18 @@ function untilClick(event){
 	console.log('x:' + x + 'y:' + y);
   
   //zahyou ni aru botan no hantei
-  if(x > lastx - 80 && x < lastx + 130 && y > lasty - 80 && y < lasty +130){
+  var lastxy = $(lastPoint[0]).getBoundingClientRect();
+  let lastx = lastxy.left;
+  let lasty = lastxy.top;
+  let lnumber = suujihenkan(lastPoint[0]);
+  
+  let nnumber = 0;
+  
+  if(x > lastx - 80 && x < lastx + 130){
+    if(y > lasty - 80 && y < lasty +130){
       
-      let nnumber = 100;
-	    
+      //hantei suru
+      
       if(x < lastx - 30){
         if(y < lasty - 30){
           nnumber = lnumber - 7;
@@ -145,15 +144,13 @@ function untilClick(event){
           nnumber = lnumber - 1;
         }else if(y > lasty + 80){
           nnumber = lnumber + 5;
-        }else{
-          System.exit(0);}
+        }
       }else if(x > lastx && x < lastx + 50){
         if(y < lasty - 30){
           nnumber = lnumber - 6;
         }else if(y > lasty + 80){
           nnumber = lnumber + 6;
-        }else{
-          System.exit(0);}
+        }
       }else if(x > lastx + 80){
         if(y < lasty - 30){
           nnumber = lnumber - 5;
@@ -161,18 +158,20 @@ function untilClick(event){
           nnumber = lnumber + 1;
         }else if(y > lasty + 80){
           nnumber = lnumber + 7;
-        }else{
-          System.exit(0);}
-      }else{
-        System.exit(0);}
+        }
+      }
   }else{
-    System.exit(0);
+    return;
+  }}else{
+    return;
   }
     
         let nowbotton = IDS[nnumber - 1];
         
         //rinsetsu suru onaji zokusei ka douka
-       
+        if(nnumber == lnumber - 7 ||nnumber == lnumber - 6 ||nnumber == lnumber - 5 ||
+           nnumber == lnumber - 1 ||nnumber == lnumber + 1 ||nnumber == lnumber + 5 ||
+           nnumber == lnumber + 6 ||nnumber == lnumber + 7){
              console.log('rinsetsu');
              if($(nowbotton).value == lastPoint[1]){
                console.log('dousyoku');
@@ -192,7 +191,11 @@ function untilClick(event){
 		     audio.volume = 0.5;
                audio.autoplay = true;
                audio.load();
-               }  
+               
+                 //se no syori owari
+               }
+                 
+             }
       }
 
 
@@ -266,4 +269,3 @@ function bgmChange(){
         }
 	    
 }}
-
