@@ -25,30 +25,8 @@ const sesource = [
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_7si.wav',
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_8do.wav',
 ]
-const umekomiTime = ['https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=10&end=260',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=261&end=499',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=500&end=759',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=760&end=1047',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=1048&end=1305',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=1306&end=1606',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=1607&end=2230',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=2231&end=2511',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=2512&end=2803',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=2804&end=3040',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=3041&end=3335',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=3336&end=3560',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=3561&end=3884',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=3885&end=4220',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=4221&end=4571',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=4572&end=4890',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=4891&end=5248',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=5249&end=5534',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=5535&end=5773',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=5774&end=6023',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=6024&end=6313',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=6314&end=6674',
-'https://www.youtube.com/embed/JMzDWbqROT4?rel=0&start=6675',
-]
+const startbyou = ['10','261','500','760','1048','1306','1607','2231','2512','2804','3041','3336','3561','3885','4221','4572','4891','5249','5535','5774','6024','6314','6675','7041']
+let douganumber = 0;
 
 let isRun = true;
 let isRunning = false;
@@ -251,3 +229,35 @@ function onloadAction(){
   }
   
 window.onload = onloadAction();
+
+//youtube noseigyo
+var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player(umekomidouga, {
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+function onPlayerReady(event) {
+        player.cueVideoById({'videoId':'JMzDWbqROT4',
+       'startSeconds': startbyou[douganumber],
+       'endSeconds': startbyou[douganumber + 1] - 1,
+   });
+   event.target.mute();
+      }
+
+function onPlayerStateChange(event) {
+   if (event.data == 0) {
+       player.seekTo(startbyou[douganumber]);
+       event.target.playVideo();
+   }
+}
