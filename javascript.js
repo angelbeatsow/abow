@@ -163,7 +163,8 @@ function untilClick(event){
           nnumber = lnumber + 7;
         }else{
           return;}
-      }
+      }else{
+        return;}
   }else{
     return;
   }
