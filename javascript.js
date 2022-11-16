@@ -245,7 +245,6 @@ function onPlayerReady(event) {
        'startSeconds': startbyou[douganumber],
        'endSeconds': startbyou[douganumber + 1] - 1,
    });
-   event.target.mute();
       }
 
 function onPlayerStateChange(event) {
@@ -262,6 +261,10 @@ function bgmChange(){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
 	    player.seekTo(startbyou[douganumber])
+	    player.cueVideoById({'videoId':'JMzDWbqROT4',
+       'startSeconds': startbyou[douganumber],
+       'endSeconds': startbyou[douganumber + 1] - 1,
+   });
         }
 	    
 }}
