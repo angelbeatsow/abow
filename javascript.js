@@ -261,12 +261,7 @@ function bgmChange(){
   for(let aunt = 1;aunt < 24;aunt++){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
-	    player = null;
-      player = YT.Player('umekomidouga', {
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
+	    player.seekTo(startbyou[douganumber])
         });
 	    
 }}}
