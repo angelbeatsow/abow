@@ -210,8 +210,8 @@ function bgmChange(){
   let select = $('bgmSelect').value
   for(let aunt = 1;aunt < 24;aunt++){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
-      let selectNumber = aunt - 1;
-      $('umekomidouga').src = umekomiTime[selectNumber];
+      douganumber = aunt - 1;
+      onYouTubeIframeAPIReady();
 }}}
 
 
