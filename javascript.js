@@ -206,13 +206,6 @@ function resetAction(){
       $(IDS[row]).value = droplist[randoma];
       $(IDS[row]).style.backgroundColor = dropcolor[randoma];
 }}
-function bgmChange(){
-  let select = $('bgmSelect').value
-  for(let aunt = 1;aunt < 24;aunt++){
-    if(select == 'm0' + aunt ||select == 'm' + aunt){
-      douganumber = aunt - 1;
-      onYouTubeIframeAPIReady();
-}}}
 
 
 function onloadAction(){
@@ -261,3 +254,14 @@ function onPlayerStateChange(event) {
        event.target.playVideo();
    }
 }
+
+//select botan wo oshitatoki no syori
+function bgmChange(){
+  let select = $('bgmSelect').value
+  for(let aunt = 1;aunt < 24;aunt++){
+    if(select == 'm0' + aunt ||select == 'm' + aunt){
+      douganumber = aunt - 1;
+      onYouTubeIframeAPIReady();
+	    player.seekTo(startbyou[douganumber])
+}}}
+
