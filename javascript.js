@@ -146,14 +146,14 @@ function untilClick(event){
         }else if(y > lasty + 80){
           nnumber = lnumber + 5;
         }else{
-          return;}
+          System.exit(0);}
       }else if(x > lastx && x < lastx + 50){
         if(y < lasty - 30){
           nnumber = lnumber - 6;
         }else if(y > lasty + 80){
           nnumber = lnumber + 6;
         }else{
-          return;}
+          System.exit(0);}
       }else if(x > lastx + 80){
         if(y < lasty - 30){
           nnumber = lnumber - 5;
@@ -162,11 +162,11 @@ function untilClick(event){
         }else if(y > lasty + 80){
           nnumber = lnumber + 7;
         }else{
-          return;}
+          System.exit(0);}
       }else{
-        return;}
+        System.exit(0);}
   }else{
-    return;
+    System.exit(0);
   }
     
         let nowbotton = IDS[nnumber - 1];
