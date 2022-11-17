@@ -239,6 +239,7 @@ function onloadAction(){
     }
   $('reset').onclick = resetAction;
   $('bgmSelectButton').onclick = bgmChange;
+  }
 	
 	
   // スクロールを禁止にする関数
