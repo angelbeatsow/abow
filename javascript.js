@@ -141,7 +141,7 @@ function untilClick(event){
   let lasty = lastxy.top;
   let lnumber = suujihenkan(lastPoint[0]);
   
-  let nnumber = 0;
+  let nnumber = 100;
   
   if(x > lastx - 80 && x < lastx + 130){
     if(y > lasty - 80 && y < lasty +130){
@@ -176,14 +176,13 @@ function untilClick(event){
   }}else{
     return;
   }
-    
-        let nowbotton = IDS[nnumber - 1];
         
         //rinsetsu suru onaji zokusei ka douka
         if(nnumber == lnumber - 7 ||nnumber == lnumber - 6 ||nnumber == lnumber - 5 ||
            nnumber == lnumber - 1 ||nnumber == lnumber + 1 ||nnumber == lnumber + 5 ||
            nnumber == lnumber + 6 ||nnumber == lnumber + 7){
              console.log('rinsetsu');
+		let nowbotton = IDS[nnumber - 1];
              if($(nowbotton).value == lastPoint[1]){
                console.log('dousyoku');
                
