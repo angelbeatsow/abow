@@ -6,6 +6,7 @@ body{
     }
 
 .titlemoji {
+    font-size: 90%;
   fill: #FBFEFE;
   stroke: #E40011;
   stroke-width: 5;
