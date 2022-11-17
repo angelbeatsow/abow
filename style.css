@@ -17,6 +17,7 @@ svg {
 }
 
 .titlemoji {
+    font-size: 90px;
   fill: #FBFEFE;
   stroke: #E40011;
   stroke-width: 2;
