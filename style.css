@@ -5,6 +5,12 @@ body{
     height: 100vh;
     }
 
+.titlemoji {
+  fill: #FBFEFE;
+  stroke: #E40011;
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
 
 input{
   font-size: 30px;
