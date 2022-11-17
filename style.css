@@ -89,3 +89,11 @@ input[value='l']{
 input[value='h']{
   color: rgb(255, 185, 231);
 }
+
+input[value='ブロックをリセットします']{
+  color: #FFFEFF;
+}
+
+input[value='ライブへ出発']{
+  color: rgb(239, 229, 208);
+}
