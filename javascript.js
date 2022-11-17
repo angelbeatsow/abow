@@ -248,17 +248,16 @@ function onloadAction(){
 	// スクロール禁止
   document.getElementById('on').onclick = function() {
     // イベントと関数を紐付け
+	  if(document.getElementById('on').value == 'スクロール禁止をonにする'){
     document.addEventListener('touchmove', disableScroll, { passive: false });
     document.body.classList.add('overflow-hidden');
+		  document.getElementById('on').value = 'スクロール禁止をoffにする';
+          }else{
+	document.removeEventListener('touchmove', disableScroll, { passive: false });
+        document.body.classList.remove('overflow-hidden');
+		  document.getElementById('on').value = 'スクロール禁止をonにする';
   }
-
-  // スクロール解除
-  document.getElementById('off').onclick = function() {
-    // イベントと関数を紐付け
-    document.removeEventListener('touchmove', disableScroll, { passive: false });
-    document.body.classList.remove('overflow-hidden');
-     }
-  }
+}
   
 window.onload = onloadAction();
 
