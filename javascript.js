@@ -81,8 +81,14 @@ function clickendAction(event){
             if($(IDS[row]).value == 'x'){
               $(IDS[row]).value = $(IDS[row - 6]).value
               $(IDS[row]).style.backgroundColor = $(IDS[row - 6]).style.backgroundColor;
+		    if($(IDS[row]).value == heal){
+                   $(IDS[row]).classList.add('marukusuru');
+                }else{
+                   $(IDS[row]).classList.remove('marukusuru');
+                }
               $(IDS[row - 6]).value = 'x'
               $(IDS[row - 6]).style.backgroundColor = 'black';
+		     $(IDS[row - 6]).classList.remove('marukusuru');
             }
           }
         }
