@@ -92,6 +92,11 @@ function clickendAction(event){
               let randoma = randomNumber();
               $(IDS[row]).value = droplist[randoma];
               $(IDS[row]).style.backgroundColor = dropcolor[randoma];
+	      if($(IDS[row]).value == heal){
+                   $(IDS[row]).classList.add('marukusuru');
+                }else{
+                   $(IDS[row]).classList.remove('marukusuru');
+                }
             }}
         isRun = true;
         }else{
@@ -204,6 +209,11 @@ function resetAction(){
       let randoma = randomNumber();
       $(IDS[row]).value = droplist[randoma];
       $(IDS[row]).style.backgroundColor = dropcolor[randoma];
+      if($(IDS[row]).value == heal){
+          $(IDS[row]).classList.add('marukusuru');
+        }else{
+          $(IDS[row]).classList.remove('marukusuru');
+        }
 }}
 
 
@@ -212,6 +222,11 @@ function onloadAction(){
       let randoma = randomNumber();
       $(IDS[row]).value = droplist[randoma];
       $(IDS[row]).style.backgroundColor = dropcolor[randoma];
+      if($(IDS[row]).value == heal){
+           $(IDS[row]).classList.add('marukusuru');
+         }else{
+           $(IDS[row]).classList.remove('marukusuru');
+         }
       $(IDS[row]).addEventListener('touchstart',clickAction);
       $(IDS[row]).addEventListener('touchend',clickendAction);
       $(IDS[row]).addEventListener('touchmove',untilClick);
