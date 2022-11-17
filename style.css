@@ -11,6 +11,11 @@ body{
     margin-bottom: 30px;
 }
 
+svg {
+  width: 100%;
+  height: auto;
+}
+
 .titlemoji {
   fill: #FBFEFE;
   stroke: #E40011;
