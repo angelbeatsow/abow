@@ -7,7 +7,12 @@ body{
     margin: 0;
     padding: 0;
     }
+div {
+    text-align: center;
+}
+
 .titlediv {
+    margin-top: -30px;
     margin-bottom: 30px;
 }
 
@@ -17,7 +22,7 @@ svg {
 }
 
 .titlemoji {
-    font-size: 90px;
+    font-size: 180px;
   fill: #FBFEFE;
   stroke: #E40011;
   stroke-width: 2;
