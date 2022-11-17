@@ -199,7 +199,7 @@ function untilClick(event){
                senumber++;
                console.log('senuber is' + senumber);
                
-		     audio.volume = $(volrange).value;
+		     audio.volume = $(volrange).value / 10;
                audio.autoplay = true;
                audio.load();
                
