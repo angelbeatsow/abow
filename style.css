@@ -51,6 +51,16 @@ input{
   margin-bottom: 40px;
 }
 
+.resetbutton {
+  background-color: rgb(211, 1, 0);
+    border: 2px solid #FFFEFF;
+}
+
+.livebutton {
+    background-color: rgb(235, 137, 95);
+    border: 2px solid #F8E9AB;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
