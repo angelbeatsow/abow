@@ -22,10 +22,10 @@ svg {
 }
 
 .titlemoji {
-    font-size: 180px;
+    font-size: 135px;
   fill: #FBFEFE;
   stroke: #E40011;
-  stroke-width: 2;
+  stroke-width: 6;
   stroke-linejoin: round;
 }
 
