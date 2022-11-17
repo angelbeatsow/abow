@@ -4,6 +4,9 @@ body{
     font-size: 30px;
     height: 100vh;
     }
+.titlediv {
+  margin-top: 60px;
+}
 
 .titlemoji {
     font-size: 90%;
