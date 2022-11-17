@@ -43,6 +43,10 @@ input{
   border: 1px solid #FFFEFF;
 }
 
+.marukusuru {
+    border-radius:50%;
+}
+
 .resetbuttondayo input{
   margin-bottom: 40px;
 }
