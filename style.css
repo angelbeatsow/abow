@@ -57,6 +57,11 @@ input{
     border: 2px solid #FFFEFF;
 }
 
+.bgmselectdiv {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
 .livebutton {
     background-color: rgb(235, 137, 95);
     border: 2px solid #F8E9AB;
