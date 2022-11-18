@@ -286,7 +286,9 @@ var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('umekomidouga', {
 		playerVars: {
-                   controls: 0},
+			start:startbyou[douganumber]),
+                   controls: 0
+		},
                 events: {
                   'onReady': onPlayerReady,
                   'onStateChange': onPlayerStateChange
