@@ -288,11 +288,10 @@ var player;
       }
 
 function onPlayerReady(event) {
-        player.cueVideoById({'videoId':'JMzDWbqROT4'
+        player.cueVideoById({'videoId':'JMzDWbqROT4',
+       'startSeconds': startbyou[douganumber],
+       'endSeconds': startbyou[douganumber + 1] - 3,
    });
-	player.playerVars = {'start':startbyou[douganumber]),
-     'end':startbyou[douganumber + 1] - 3,
-     controls: 0};
       }
 
 function onPlayerStateChange(event) {
@@ -309,9 +308,9 @@ function bgmChange(){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
 	    player.seekTo(startbyou[douganumber]);
-	    player.playerVars = {'start':startbyou[douganumber]),
-     'end':startbyou[douganumber + 1] - 3,
-     controls: 0};
-        }
-	    
+	    player.cueVideoById({'videoId':'JMzDWbqROT4',
+       'startSeconds': startbyou[douganumber],
+       'endSeconds': startbyou[douganumber + 1] - 3,
+        });
+	   }
 }}
