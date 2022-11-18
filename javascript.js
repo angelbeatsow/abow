@@ -267,6 +267,13 @@ function onloadAction(){
 }
   
 window.onload = onloadAction();
+//動画が指定時間になったらシークバーを戻す
+window.setInterval(function(){
+    if(player.getCurrentTime() > startbyou[douganumber + 1] - 3){
+         player.seekTo(startbyou[douganumber]);
+     }
+}, 1000);
+
 
 //youtube noseigyo
 var tag = document.createElement('script');
@@ -288,10 +295,9 @@ var player;
       }
 
 function onPlayerReady(event) {
-        player.cueVideoById({'videoId':'JMzDWbqROT4',
-       'startSeconds': startbyou[douganumber],
-       'endSeconds': startbyou[douganumber + 1] - 3,
+        player.cueVideoById({'videoId':'JMzDWbqROT4'
    });
+        player.seekTo(startbyou[douganumber]);
       }
 
 function onPlayerStateChange(event) {
@@ -308,9 +314,5 @@ function bgmChange(){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
 	    player.seekTo(startbyou[douganumber]);
-	    player.cueVideoById({'videoId':'JMzDWbqROT4',
-       'startSeconds': startbyou[douganumber],
-       'endSeconds': startbyou[douganumber + 1] - 3,
-        });
 	   }
 }}
