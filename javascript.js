@@ -286,7 +286,6 @@ var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('umekomidouga', {
 		playerVars: {
-			start:startbyou[douganumber]),
                    controls: 0
 		},
                 events: {
@@ -297,9 +296,9 @@ var player;
       }
 
 function onPlayerReady(event) {
-        player.cueVideoById({'videoId':'JMzDWbqROT4'
+        player.cueVideoById({'videoId':'JMzDWbqROT4',
+			     'startSeconds': 10
    });
-        player.seekTo(startbyou[douganumber]);
       }
 
 function onPlayerStateChange(event) {
