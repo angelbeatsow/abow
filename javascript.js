@@ -307,7 +307,7 @@ function bgmChange(){
   for(let aunt = 1;aunt < 24;aunt++){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
-	    player.seekTo(startbyou[douganumber])
+	    player.seekTo(startbyou[douganumber]);
 	    player.cueVideoById({'videoId':'JMzDWbqROT4',
        'startSeconds': startbyou[douganumber],
        'endSeconds': startbyou[douganumber + 1] - 3,
