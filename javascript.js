@@ -158,7 +158,6 @@ function untilClick(event){
                 }else{
                       return;
                 }
-       }
        }else if(x > lastx && x < lastx + 50){
             if(y < lasty - 30 && lnumber > 6){
                 nnumber = lnumber - 6;
