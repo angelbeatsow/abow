@@ -178,9 +178,10 @@ function untilClick(event){
       }else{
             return;
       }
- }else{
+    }else{
     return;
-  }}else{
+    }
+  }else{
     return;
   }
       
