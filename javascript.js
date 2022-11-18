@@ -148,39 +148,46 @@ function untilClick(event){
       
       //hantei suru
       
-      if(x < lastx - 30){
-        if(y < lasty - 30){
-          nnumber = lnumber - 7;
-        }else if(y > lasty && y < lasty + 50){
-          nnumber = lnumber - 1;
-        }else if(y > lasty + 80){
-          nnumber = lnumber + 5;
-        }
-      }else if(x > lastx && x < lastx + 50){
-        if(y < lasty - 30){
-          nnumber = lnumber - 6;
-        }else if(y > lasty + 80){
-          nnumber = lnumber + 6;
-        }
-      }else if(x > lastx + 80){
-        if(y < lasty - 30){
-          nnumber = lnumber - 5;
-        }else if(y > lasty && y < lasty + 50){
-          nnumber = lnumber + 1;
-        }else if(y > lasty + 80){
-          nnumber = lnumber + 7;
-        }
+      if(x < lastx - 30 && lnumber % 6 != 1){
+                 if(y < lasty - 30 && lnumber > 6){
+                      nnumber = lnumber - 7;
+                 }else if(y > lasty && y < lasty + 50){
+                      nnumber = lnumber - 1;
+                }else if(y > lasty + 80 && lnumber < 31){
+                      nnumber = lnumber + 5;
+                }else{
+                      return;
+                }
+       }
+       }else if(x > lastx && x < lastx + 50){
+            if(y < lasty - 30 && lnumber > 6){
+                nnumber = lnumber - 6;
+            }else if(y > lasty + 80 && lnumber < 31){
+                nnumber = lnumber + 6;
+            }else{
+                return;
+            }
+      }else if(x > lastx + 80 && lnumber % 6 != 0){
+            if(y < lasty - 30 && lnumber > 6){
+                 nnumber = lnumber - 5;
+            }else if(y > lasty && y < lasty + 50){
+                 nnumber = lnumber + 1;
+            }else if(y > lasty + 80 && lnumber < 31){
+                 nnumber = lnumber + 7;
+            }
+      }else{
+            return;
       }
-  }else{
+ }else{
     return;
   }}else{
     return;
   }
+      
+                      
         
         //rinsetsu suru onaji zokusei ka douka
-        if(nnumber == lnumber - 7 ||nnumber == lnumber - 6 ||nnumber == lnumber - 5 ||
-           nnumber == lnumber - 1 ||nnumber == lnumber + 1 ||nnumber == lnumber + 5 ||
-           nnumber == lnumber + 6 ||nnumber == lnumber + 7){
+        if(nnumber < 37 && nnumber > 0){
              console.log('rinsetsu');
 		let nowbotton = IDS[nnumber - 1];
              if($(nowbotton).value == lastPoint[1]){
