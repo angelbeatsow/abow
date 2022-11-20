@@ -73,8 +73,7 @@ input{
 
 .controller {
   position: fixed;
-  top: 50%;
-  transform:translateY(-50%);
+  bottom: 50px;
   background-color: transparent;
 }
 
