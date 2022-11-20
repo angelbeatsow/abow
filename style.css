@@ -73,7 +73,9 @@ input{
 
 .controller {
   position: fixed;
-  bottom: 50px;
+  transform:rotate(90deg);
+  top: 50px;
+  left: 0;
   background-color: transparent;
 }
 
