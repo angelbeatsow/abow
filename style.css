@@ -2,7 +2,7 @@ body{
     overscroll-behavior-y: none;
     text-align: center;
     font-size: 30px;
-    width: 540px;
+    width: 700px;
     background-color: rgb(48, 39, 119);
     margin: auto;
     padding: 50px;
@@ -73,7 +73,8 @@ input{
 
 .controller {
   position: fixed;
-  bottom: 25px;
+  top: 50%;
+  transform:translateY(-50%);
   background-color: transparent;
 }
 
