@@ -240,8 +240,8 @@ function onloadAction(){
            $(IDS[row]).classList.remove('marukusuru');
          }
       $(IDS[row]).addEventListener('touchstart',clickAction,{ passive: false });
-      $(IDS[row]).addEventListener('touchend',clickendAction,{ passive: false });
-      $(IDS[row]).addEventListener('touchmove',untilClick);
+      $(IDS[row]).addEventListener('touchend',clickendAction);
+      $(IDS[row]).addEventListener('touchmove',untilClick,{ passive: false });
     }
   $('reset').onclick = resetAction;
   $('bgmSelectButton').onclick = bgmChange;
