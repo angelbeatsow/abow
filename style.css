@@ -76,6 +76,7 @@ input{
   transform:rotate(90deg);
   top: 50px;
   left: 0;
+  transform: translateY(50%);
   background-color: transparent;
 }
 
