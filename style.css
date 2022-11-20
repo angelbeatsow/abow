@@ -72,8 +72,8 @@ input{
 
 .controller {
   position: fixed;
-  top: 0;
-    background-color: transparent;
+  bottom: 0;
+  background-color: transparent;
 }
 
 input[value='f']{
