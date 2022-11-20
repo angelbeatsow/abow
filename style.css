@@ -2,7 +2,7 @@ body{
     overscroll-behavior-y: none;
     text-align: center;
     font-size: 30px;
-    weight: 1090px;
+    weight: 100vw;
     background-color: rgb(48, 39, 119);
     margin: 0;
     padding: 50px;
