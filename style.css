@@ -5,14 +5,14 @@ body{
     width: 540px;
     background-color: rgb(48, 39, 119);
     margin: auto;
-    padding: 50px;
+    padding: 0;
     }
 div {
     text-align: center;
 }
 
 .titlediv {
-    margin-top: -105px;
+    margin-top: 105px;
     margin-bottom: 105px;
 }
 
