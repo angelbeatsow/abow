@@ -73,10 +73,10 @@ input{
 
 .controller {
   position: fixed;
-  transform:rotate(90deg);
+  transform:rotate(90deg)
+            translateY(50%);
   top: 50px;
   left: 0;
-  transform: translateY(50%);
   background-color: transparent;
 }
 
