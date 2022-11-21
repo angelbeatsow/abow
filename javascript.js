@@ -33,7 +33,12 @@ let isRunning = false;
 let isDissaper = false;
 let Rnumber = 1;
 let senumber = 0;
+let firstPoint = 0;
 let lastPoint = [0,0];
+let howManyDissaper = 0;
+let totalDissaper = 0;
+let spendedTurn = 0;
+let timeCount = false;
 
 function $(id){
   return document.getElementById(id);
@@ -52,6 +57,17 @@ function suujihenkan(suuji){
   }
 }
 
+function count(){
+	$('timegauge').style.wedth = $('timegauge').style.wedth - 9;
+   if($('timegauge').style.wedth != 0){
+     setTimeout(count,100);
+   }
+   //カウントが0になったときの処理
+     isRun = false;
+     isRunning = false;
+     isDissaper = false;
+}
+
 function clickAction(event){
   if(isRun == false){
     return;
@@ -59,9 +75,9 @@ function clickAction(event){
   event.preventDefault();
   senumber = 0;
   isDissaper = false;
-  let id = event.target.id;
-  let object = $(id).value;
-  lastPoint = [id,object];
+  firstPoint = event.target.id;
+  let object = $(firstPoint).value;
+  lastPoint = [firstPoint,object];
   isRun = false;
   isRunning = true;
   $(id).value = 'x';
@@ -104,8 +120,19 @@ function clickendAction(event){
                    $(IDS[row]).classList.remove('marukusuru');
                 }
             }}
+	      
+	      //カウントの処理
+	      if(timeCount == false){
+	         timeCount = true;
+		      count();
+              }
+		      
+	      //消したブロックの数を計上
+	      totalDissaper = totalDissaper + howManyDissaper;
+	      howManyDissaper = 0;
+	      
         isRun = true;
-        }else{
+        }else if(isRun == false){
         $(lastPoint[0]).value = lastPoint[1];
         isRun = true;
           isRunning = false;
@@ -197,6 +224,11 @@ function untilClick(event){
                lastPoint[0] = nowbotton;
                $(nowbotton).value = 'x';
                isDissaper = true;
+		     if(howManyDissaper == 0){
+		        howManyDissaper = 2;
+		     }else{
+			howManyDissaper = howManyDissaper + 1;
+		     }
                
                //se no syori
                console.log('se effect!')
