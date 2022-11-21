@@ -77,19 +77,21 @@ function countzero(){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction();
 	      isRun = false;
-	      //TimeUnit.SECONDS.sleep(1);
-	      $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
-              $('timegauge').style.width = '500px';
+	      setTimeout(function(){
+	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
+                 $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
                     timeCount = false;
-	            isRun = true;
+	            isRun = true;},1000);
       }else{
-	      //TimeUnit.SECONDS.sleep(1);
-	      $('timegauge').style.width = '500px';
+	      isRun = false;
+	      setTimeout(function(){
+	           $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
                     timeCount = false;
+		      isRun = true;},1000);
       }
 }
 
