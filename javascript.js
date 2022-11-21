@@ -334,10 +334,12 @@ window.setInterval(function(){
 }, 1000);
 //カウント
 window.setInterval(function(){
-    if(timeCount == true && gaugewidth != '1px'){
-       count();
-    }else if(timeCount == true && gaugewidth == '1px' ){
-	    countzero();}
+    if(timeCount == true){
+	    if(gaugewidth != '1px'){
+               count();
+            }else if(gaugewidth == '1px'){
+	       countzero();}
+    }
 }, 100);
 
 
