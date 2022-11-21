@@ -64,7 +64,7 @@ function count(){
 	gaugewedth = gaugewedth - 10;
 	$('timegauge').style.wedth = gaugewedth +'px';
 	if($('timegauge').style.wedth != 0 + 'px'){
-           setTimeout(count,100);
+           setTimeout(count(),100);
         }else{
            countzero();
            return;
