@@ -75,6 +75,11 @@ function countzero(){
       console.log('カウントが0になった!')
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
+      }else{
+	      $('timegauge').style.width = '500px';
+                    gaugewidth = 500;
+                    spendedTurn　= spendedTurn + 1;
+                    timeCount = false;
       }
 }
 
@@ -139,6 +144,7 @@ function clickendAction(event){
 		     gaugewidth = gaugewidth + howManyDissaper * 10 ;
 		    $('timegauge').style.width = gaugewidth + 'px';
 	      }else if($('timegauge').style.width == '1px'){
+		      //カウント0の時
 		    $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
                     $('timegauge').style.width = '500px';
                     gaugewidth = 500;
