@@ -29,11 +29,18 @@ svg {
   stroke-linejoin: round;
 }
 
+.gaugep{
+   background-color: rgb(222, 219, 228);
+   width: 502px;
+   height: 18px;
+   margin: auto;
+}
+
 .gauge{
     background-color: rgb(211, 1, 0);
     width: 500px;
     height: 10px;
-    left: 20px;
+    left: 1px;
 }
 
 input{
