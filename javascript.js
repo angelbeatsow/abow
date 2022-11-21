@@ -60,7 +60,8 @@ function suujihenkan(suuji){
 }
 
 //カウント処理
-let gaugewidth = 500;
+let sousajikan = 5;
+let gaugewidth = sousajikan * 100;
 function count(){
      if(gaugewidth >= 10){
 	gaugewidth = gaugewidth - 10;
@@ -82,8 +83,8 @@ function countzero(){
 	      setTimeout(function(){
 		      $('fadeLayer').style.visibility = "hidden";
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
-                 $('timegauge').style.width = '500px';
-                    gaugewidth = 500;
+                    gaugewidth = sousajikan * 100;
+		      $('timegauge').style.width = gaugewidth + 'px';
                     spendedTurn　= spendedTurn + 1;
 		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
@@ -91,8 +92,8 @@ function countzero(){
       }else{
 	      setTimeout(function(){
 		      $('fadeLayer').style.visibility = "hidden";
-	           $('timegauge').style.width = '500px';
-                    gaugewidth = 500;
+	          gaugewidth = sousajikan * 100;
+		      $('timegauge').style.width = gaugewidth + 'px';
                     spendedTurn　= spendedTurn + 1;
 		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
@@ -341,23 +342,36 @@ function onloadAction(){
 		  document.getElementById('on').value = 'スクロール禁止をonにする';
   }
 }
-  
+
+//操作時間+3秒ボタン
+$('sanbyouOn').onclick = function() {
+   if($('sanbyouOn').value == 'onにする'){
+	   sousajikan = 8;
+	   $('sanbyouOn').value = 'offにする';
+   }else{
+	   sousajikan = 5;
+	   $('sanbyouOn').value = 'onにする';
+   }
+}  
 
 
 //windowアクションですよーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 window.onload = onloadAction();
-//動画が指定時間になったらシークバーを戻す
+//動画が指定時間になったらシークバーを戻すsetInterval
 window.setInterval(function(){
     if(player.getCurrentTime() > startbyou[douganumber + 1] - 3){
          player.seekTo(startbyou[douganumber]);
      }
 }, 1000);
-//カウント
+//カウントsetInterval
 window.setInterval(function(){
     if(timeCount == true && gaugewidth != 0){
         count();
     }else if(gaugewidth == 0){
 	countzero();
+    }else if(timeCount == false && $('timegauge').style.width != sousajikan * 100 + 'px'){
+	    gaugewidth = sousajikan * 100
+            $('timegauge').style.width != sousajikan * 100 + 'px'
     }
 }, 100);
 
