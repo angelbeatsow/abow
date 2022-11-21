@@ -72,20 +72,10 @@ function count(){
 
 //カウントが0になったときの処理
 function countzero(){
+      console.log('カウントが0になった!')
+      if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
-
-        clickendAction();
-	
-	isRun = false;
-     isRunning = false;
-	Thread.sleep(1000);
-         
-	$(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
-	$('timegauge').style.width = '500px';
-	gaugewidth = 500;
-	spendedTurn　= spendedTurn + 1;
-	timeCount = false;
-	isRun = true;
+      }
 }
 
 function clickAction(event){
@@ -144,11 +134,18 @@ function clickendAction(event){
 	      //カウントの処理
 	      if(timeCount == false){
 	         timeCount = true;
-              }else if($('timegauge').style.width != '0px'){
+              }else if($('timegauge').style.width != '1px'){
 	      //消したブロックに応じてカウントを増やす
 		     gaugewidth = gaugewidth + howManyDissaper * 10 ;
 		    $('timegauge').style.width = gaugewidth + 'px';
+	      }else if($('timegauge').style.width == '1px'){
+		    $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
+                    $('timegauge').style.width = '500px';
+                    gaugewidth = 500;
+                    spendedTurn　= spendedTurn + 1;
+                    timeCount = false;
 	      }
+   
 		      
 	      //消したブロックの数を計上
 	      totalDissaper = totalDissaper + howManyDissaper;
