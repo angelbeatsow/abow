@@ -127,11 +127,10 @@ input[value='ライブ']{
 
 #fadeLayer {
   position:absolute;
-  top:0px;
-  left:0px;
+  
 
-  width:100%;
-  height:100%;
+  width:520px;
+  height:700px;
 
   background-color:#000000;
   opacity:0.5;
