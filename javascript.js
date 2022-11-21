@@ -63,11 +63,17 @@ let gaugewedth = 450;
 function count(){
 	$('timegauge').style.wedth = gaugewedth - 9 +'px';
 	gaugewedth = gaugewedth - 9;
-   if($('timegauge').style.wedth > 0){
-     setTimeout(count,100);
-   }
+	if($('timegauge').style.wedth > 0){
+           setTimeout(count,100);
+        }else{
+           countzero();
+           return;
+	}
+}
+function countzero(){
    //カウントが0になったときの処理
-	$(firstPoint).removeEventListener('touchmove',untilClick,{ passive: false });
+        let eventlistener = $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
+	$(firstPoint).removeEventListener(eventlistener);
      clickendAction()
 	isRun = false;
      isRunning = false;
