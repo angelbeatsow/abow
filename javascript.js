@@ -169,7 +169,7 @@ function clickendAction(event){
 	      whatTimeDissaperInThisTurn　= whatTimeDissaper;
 	      
               isRun = true;
-        }else if(isRun == false && gaugewidth != 1){
+        }else if(isRun == false){
           $(lastPoint[0]).value = lastPoint[1];
           isRun = true;
           isRunning = false;
