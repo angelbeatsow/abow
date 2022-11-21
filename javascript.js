@@ -75,9 +75,9 @@ function countzero(){
       console.log('カウントが0になった!');
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
-	      clickendAction;
+	      clickendAction();
 	      isRun = false;
-	      TimeUnit.SECONDS.sleep(1);
+	      //TimeUnit.SECONDS.sleep(1);
 	      $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
               $('timegauge').style.width = '500px';
                     gaugewidth = 500;
@@ -85,7 +85,7 @@ function countzero(){
                     timeCount = false;
 	            isRun = true;
       }else{
-	      TimeUnit.SECONDS.sleep(1);
+	      //TimeUnit.SECONDS.sleep(1);
 	      $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
