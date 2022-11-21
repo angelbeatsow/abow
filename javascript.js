@@ -160,7 +160,7 @@ function clickendAction(event){
 	      //カウントの処理
 	      if(timeCount == false){
 	         timeCount = true;
-              }else if($('timegauge').style.width != '1px'){
+              }else if($('timegauge').style.width != '0px'){
 	      //消したブロックに応じてカウントを増やす
 		     gaugewidth = gaugewidth + howManyDissaper * 12 * 5 / sousajikan ;
 		    $('timegauge').style.width = gaugewidth + 'px';
@@ -369,11 +369,9 @@ window.setInterval(function(){
         count();
     }else if(gaugewidth == 0){
 	countzero();
-    }else if(timeCount == false && $('timegauge').style.width != sousajikan * 100 + 'px'){
-	    gaugewidth = sousajikan * 100
-            $('timegauge').style.width != sousajikan * 100 + 'px'
     }
 }, sousajikan * 20);
+
 
 
 //youtube noseigyo
