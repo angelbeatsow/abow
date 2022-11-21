@@ -59,10 +59,10 @@ function suujihenkan(suuji){
 }
 
 //カウント処理
-let gaugewedth = 500;
+let gaugewidth = 500;
 function count(){
-	gaugewedth = gaugewedth - 10;
-	$('timegauge').style.wedth = gaugewedth +'px';	
+	gaugewidth = gaugewidth - 10;
+	$('timegauge').style.width = gaugewidth +'px';	
 }
 
 //カウントが0になったときの処理
@@ -76,7 +76,7 @@ function countzero(){
          
 	$(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
 	$('timegauge').style.wedth = '500px';
-	gaugewedth = 500;
+	gaugewidth = 500;
 	spendedTurn　= spendedTurn + 1;
 	timeCount = false;
 	isRun = true;
@@ -138,10 +138,10 @@ function clickendAction(event){
 	      //カウントの処理
 	      if(timeCount == false){
 	         timeCount = true;
-              }else if($('timegauge').style.wedth != '0px'){
+              }else if($('timegauge').style.width != '0px'){
 	      //消したブロックに応じてカウントを増やす
-		     gaugewedth = gaugewedth + howManyDissaper * 10 ;
-		    $('timegauge').style.wedth = gaugewedth + 'px';
+		     gaugewidth = gaugewidth + howManyDissaper * 10 ;
+		    $('timegauge').style.width = gaugewidth + 'px';
 	      }
 		      
 	      //消したブロックの数を計上
@@ -325,9 +325,9 @@ window.setInterval(function(){
      }
 }, 1000);
 window.setInterval(function(){
-    if(timeCount == true && gaugewedth != '0px'){
+    if(timeCount == true && gaugewidth != '0px'){
        count();
-    }else if(timeCount == true && gaugewedth == '0px' ){
+    }else if(timeCount == true && gaugewidth == '0px' ){
 	    countzero();}
 }, 100);
 
