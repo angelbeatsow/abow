@@ -72,8 +72,7 @@ function count(){
 }
 function countzero(){
    //カウントが0になったときの処理
-        let eventlistener = $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
-	$(firstPoint).removeEventListener(eventlistener);
+        $(firstPoint).removeEventListener('touchmove',untilClick);
      clickendAction()
 	isRun = false;
      isRunning = false;
