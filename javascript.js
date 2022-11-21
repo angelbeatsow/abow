@@ -94,7 +94,7 @@ function clickAction(event){
   lastPoint = [firstPoint,object];
   isRun = false;
   isRunning = true;
-  $(id).value = 'x';
+  $(firstPoint).value = 'x';
   console.log(lastPoint[0]);
   console.log(lastPoint[1]);
 }
