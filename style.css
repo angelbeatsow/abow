@@ -121,6 +121,14 @@ input[value='配置をシャッフル']{
   color: #FFFEFF;
 }
 
+input[value='onにする']{
+  color: #FFFEFF;
+}
+
+input[value='offにする']{
+  color: #FFFEFF;
+}
+
 input[value='ライブ']{
   color: rgb(239, 229, 208);
 }
