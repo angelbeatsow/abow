@@ -71,19 +71,6 @@ function count(){
      }
 }
 
-//レイヤーの大きさを画面いっぱいにする
-var MaxHeight = Math.max(
-        Math.max(document.body.clientHeight, document.body.scrollHeight),
-        Math.max(document.documentElement.scrollHeight, document.documentElement.clientHeight));
-      $('fadeLayer').style.height = MaxHeight+"px";
-
-      var MaxWidth = Math.max(
-        Math.max(document.body.clientWidth, document.body.scrollWidth),
-        Math.max(document.documentElement.scrollWidth, document.documentElement.clientWidth));
-      $('fadeLayer').style.width = MaxWidth + "px";
-
-
-
 //カウントが0になったときの処理
 function countzero(){
       console.log('カウントが0になった!');
