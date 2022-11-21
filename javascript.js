@@ -69,13 +69,13 @@ function count(){
 function countzero(){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 
-        clickendAction();
+        clickendAction(event);
 	
 	isRun = false;
      isRunning = false;
          
 	$(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
-	$('timegauge').style.wedth = '500px';
+	$('timegauge').style.width = '500px';
 	gaugewidth = 500;
 	spendedTurn　= spendedTurn + 1;
 	timeCount = false;
