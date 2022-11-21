@@ -78,14 +78,9 @@ function countzero(){
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction();
+	      
 	      setTimeout(function(){
 		      $('fadeLayer').style.visibility = "hidden";
-		      $('fadeLayer2').style.visibility = "visible";
-		      setTimeout(function(){
-			      $('fadeLayer2').style.visibility = "hidden";
-                      },200);
-              },800);
-	      setTimeout(function(){
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
                  $('timegauge').style.width = '500px';
                     gaugewidth = 500;
@@ -96,12 +91,6 @@ function countzero(){
       }else{
 	      setTimeout(function(){
 		      $('fadeLayer').style.visibility = "hidden";
-		      $('fadeLayer2').style.visibility = "visible";
-		      setTimeout(function(){
-			      $('fadeLayer2').style.visibility = "hidden";
-                      },200);
-              },800);
-	      setTimeout(function(){
 	           $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
