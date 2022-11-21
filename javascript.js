@@ -75,7 +75,6 @@ function countzero(){
       console.log('カウントが0になった!');
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
-	      isRun = false;
 	      clickendAction();
 	      setTimeout(function(){
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
@@ -83,15 +82,14 @@ function countzero(){
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
                     timeCount = false;
-	            isRun = true;},1000);
+	            },1000);
       }else{
-	      isRun = false;
 	      setTimeout(function(){
 	           $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
                     timeCount = false;
-		      isRun = true;},1000);
+		    },1000);
       }
 }
 
@@ -99,6 +97,9 @@ function clickAction(event){
   if(isRun == false){
     return;
   }
+ if(gaugewidth == 1){
+     return;
+ }
   event.preventDefault();
   senumber = 0;
   isDissaper = false;
@@ -164,7 +165,7 @@ function clickendAction(event){
 	      whatTimeDissaper = whatTimeDissaper + 1;
 	      
               isRun = true;
-        }else if(isRun == false){
+        }else if(isRun == false && gaugewidth != 1){
           $(lastPoint[0]).value = lastPoint[1];
           isRun = true;
           isRunning = false;
@@ -178,6 +179,9 @@ function untilClick(event){
   if(!isRunning){
     return;
   }
+ if(gaugewidth == 1){
+     return;
+ }
   //zahyou no syutoku
   let x = event.clientX;
   let y = event.clientY;
