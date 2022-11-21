@@ -61,7 +61,7 @@ function suujihenkan(suuji){
 
 //カウント処理
 let sousajikan = 5;
-let gaugewidth = sousajikan * 100;
+let gaugewidth = 500;
 function count(){
      if(gaugewidth >= 10){
 	gaugewidth = gaugewidth - 10;
@@ -83,7 +83,7 @@ function countzero(){
 	      setTimeout(function(){
 		      $('fadeLayer').style.visibility = "hidden";
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
-                    gaugewidth = sousajikan * 100;
+                    gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
                     spendedTurn　= spendedTurn + 1;
 		    whatTimeDissaperInThisTurn = 0;
@@ -92,7 +92,7 @@ function countzero(){
       }else{
 	      setTimeout(function(){
 		      $('fadeLayer').style.visibility = "hidden";
-	          gaugewidth = sousajikan * 100;
+	          gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
                     spendedTurn　= spendedTurn + 1;
 		    whatTimeDissaperInThisTurn = 0;
@@ -162,7 +162,7 @@ function clickendAction(event){
 	         timeCount = true;
               }else if($('timegauge').style.width != '1px'){
 	      //消したブロックに応じてカウントを増やす
-		     gaugewidth = gaugewidth + howManyDissaper * 12 ;
+		     gaugewidth = gaugewidth + howManyDissaper * 12 * 5 / sousajikan ;
 		    $('timegauge').style.width = gaugewidth + 'px';
 	      }
    
@@ -373,7 +373,7 @@ window.setInterval(function(){
 	    gaugewidth = sousajikan * 100
             $('timegauge').style.width != sousajikan * 100 + 'px'
     }
-}, 100);
+}, sousajikan * 20);
 
 
 //youtube noseigyo
