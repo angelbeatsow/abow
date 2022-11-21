@@ -76,12 +76,14 @@ function countzero(){
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction;
+	      isRun = false;
 	      Thread.sleep(1000);
 	      $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false}
               $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
                     timeCount = false;
+	            isRun = true;
       }else{
 	      Thread.sleep(1000);
 	      $('timegauge').style.width = '500px';
@@ -112,7 +114,7 @@ function clickendAction(event){
       if(isDissaper == true){
         isRun = false;
         isRunning = false;
-        isPissaper = false;
+	      isDissaper = false;
         
         //drop wo otosu
         for(let n = 0;n < 5;n++){
@@ -164,7 +166,7 @@ function clickendAction(event){
           $(lastPoint[0]).value = lastPoint[1];
           isRun = true;
           isRunning = false;
-          isPissaper = false;
+          isDissaper = false;
       }
 }
     
