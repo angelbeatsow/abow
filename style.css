@@ -29,6 +29,13 @@ svg {
   stroke-linejoin: round;
 }
 
+.gauge{
+    background-color: rgb(211, 1, 0);
+    width: 450px;
+    height: 20px;
+    left: 0;
+}
+
 input{
   font-size: 30px;
 }
