@@ -71,10 +71,9 @@ function count(){
      clickendAction()
 	isRun = false;
      isRunning = false;
-     try {
+     
 	Thread.sleep(1000); // 1秒間だけ処理を止める
-         } catch (InterruptedException e) {
-         }
+         
 	$(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
 	$('timegauge').style.wedth = 450px;
 	gaugewedth = 450;
