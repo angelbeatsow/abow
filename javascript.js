@@ -61,18 +61,24 @@ function suujihenkan(suuji){
 //カウント処理
 let gaugewidth = 500;
 function count(){
+     if(gaugewidth >= 10){
 	gaugewidth = gaugewidth - 10;
 	$('timegauge').style.width = gaugewidth +'px';	
+     }else{
+	     gaugewidth = 0;
+	     $('timegauge').style.width = '0px';	
+     }
 }
 
 //カウントが0になったときの処理
 function countzero(){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 
-        clickendAction(event);
+        clickendAction();
 	
 	isRun = false;
      isRunning = false;
+	Thread.sleep(1000);
          
 	$(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
 	$('timegauge').style.width = '500px';
