@@ -77,15 +77,15 @@ function countzero(){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction;
 	      isRun = false;
-	      //Thread.sleep(1000);
-	      $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false}
+	      Thread.sleep(1000);
+	      $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
               $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
                     timeCount = false;
 	            isRun = true;
       }else{
-	      //Thread.sleep(1000);
+	      Thread.sleep(1000);
 	      $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
