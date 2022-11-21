@@ -73,7 +73,57 @@ function count(){
 function countzero(){
    //カウントが0になったときの処理
         $(firstPoint).removeEventListener('touchmove',untilClick);
-     clickendAction()
+
+   //clickendAction()のコピー
+	         if(isDissaper == true){
+        isRun = false;
+        isRunning = false;
+        isPissaper = false;
+        
+        //drop wo otosu
+        for(let n = 0;n < 5;n++){
+          for(let row=6;row < 36;row++){
+            if($(IDS[row]).value == 'x'){
+              $(IDS[row]).value = $(IDS[row - 6]).value
+              $(IDS[row]).style.backgroundColor = $(IDS[row - 6]).style.backgroundColor;
+		    if($(IDS[row]).value == heal){
+                   $(IDS[row]).classList.add('marukusuru');
+                }else{
+                   $(IDS[row]).classList.remove('marukusuru');
+                }
+              $(IDS[row - 6]).value = 'x'
+              $(IDS[row - 6]).style.backgroundColor = 'black';
+		     $(IDS[row - 6]).classList.remove('marukusuru');
+            }
+          }
+        } 	      
+	      //x ni drop wo ireru
+        for(let row=0;row < 36;row++){
+            if($(IDS[row]).value == 'x'){
+              let randoma = randomNumber();
+              $(IDS[row]).value = droplist[randoma];
+              $(IDS[row]).style.backgroundColor = dropcolor[randoma];
+	      if($(IDS[row]).value == heal){
+                   $(IDS[row]).classList.add('marukusuru');
+                }else{
+                   $(IDS[row]).classList.remove('marukusuru');
+                }
+            }}
+		      
+	      //消したブロックの数を計上
+	      totalDissaper = totalDissaper + howManyDissaper;
+	      howManyDissaper = 0;
+	      whatTimeDissaper = whatTimeDissaper + 1;
+	      
+              isRun = true;
+        }else if(isRun == false){
+          $(lastPoint[0]).value = lastPoint[1];
+          isRun = true;
+          isRunning = false;
+          isPissaper = false;
+      } 
+//コピーここまで
+	
 	isRun = false;
      isRunning = false;
      
