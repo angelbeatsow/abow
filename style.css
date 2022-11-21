@@ -30,6 +30,7 @@ svg {
 }
 
 .gaugep{
+   position: relative;
    background-color: rgb(222, 219, 228);
    width: 520px;
    height: 18px;
@@ -37,11 +38,12 @@ svg {
 }
 
 .gauge{
+    position:absolute;
     background-color: rgb(211, 1, 0);
     width: 500px;
     height: 10px;
-    left: 20px;
-    top: 8px;
+    left: 10px;
+    top: 4px;
 }
 
 input{
