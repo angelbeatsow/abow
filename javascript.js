@@ -62,12 +62,12 @@ function suujihenkan(suuji){
 //カウント処理
 let gaugewidth = 500;
 function count(){
-     if(gaugewidth >= 11){
+     if(gaugewidth >= 10){
 	gaugewidth = gaugewidth - 10;
 	$('timegauge').style.width = gaugewidth +'px';	
      }else{
-	     gaugewidth = 1;
-	     $('timegauge').style.width = '1px';	
+	     gaugewidth = 0;
+	     $('timegauge').style.width = '0px';	
      }
 }
 
@@ -100,7 +100,7 @@ function clickAction(event){
   if(isRun == false){
     return;
   }
- if(gaugewidth == 1){
+ if(gaugewidth == 0){
      return;
  }
   event.preventDefault();
@@ -183,7 +183,7 @@ function untilClick(event){
   if(!isRunning){
     return;
   }
- if(gaugewidth == 1){
+ if(gaugewidth == 0){
      return;
  }
   //zahyou no syutoku
@@ -350,9 +350,9 @@ window.setInterval(function(){
 }, 1000);
 //カウント
 window.setInterval(function(){
-    if(timeCount == true && gaugewidth != 1){
+    if(timeCount == true && gaugewidth != 0){
         count();
-    }else if(gaugewidth == 1){
+    }else if(gaugewidth == 0){
 	countzero();
     }
 }, 100);
