@@ -61,12 +61,12 @@ function suujihenkan(suuji){
 //カウント処理
 let gaugewidth = 500;
 function count(){
-     if(gaugewidth >= 10){
+     if(gaugewidth >= 11){
 	gaugewidth = gaugewidth - 10;
 	$('timegauge').style.width = gaugewidth +'px';	
      }else{
-	     gaugewidth = 0;
-	     $('timegauge').style.width = '0px';	
+	     gaugewidth = 1;
+	     $('timegauge').style.width = '1px';	
      }
 }
 
@@ -322,7 +322,9 @@ function onloadAction(){
   }
 }
   
-//windowアクション
+
+
+//windowアクションですよーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 window.onload = onloadAction();
 //動画が指定時間になったらシークバーを戻す
 window.setInterval(function(){
@@ -330,10 +332,11 @@ window.setInterval(function(){
          player.seekTo(startbyou[douganumber]);
      }
 }, 1000);
+//カウント
 window.setInterval(function(){
-    if(timeCount == true && gaugewidth != '0px'){
+    if(timeCount == true && gaugewidth != '1px'){
        count();
-    }else if(timeCount == true && gaugewidth == '0px' ){
+    }else if(timeCount == true && gaugewidth == '1px' ){
 	    countzero();}
 }, 100);
 
