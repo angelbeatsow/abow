@@ -325,9 +325,9 @@ window.setInterval(function(){
      }
 }, 1000);
 window.setInterval(function(){
-    if(timeCount == true && gaugewidth != '0px'){
+    if(timeCount == true && gaugewedth != '0px'){
        count();
-    }else if(timeCount == true && gaugewidth == '0px' ){
+    }else if(timeCount == true && gaugewedth == '0px' ){
 	    countzero();}
 }, 100);
 
