@@ -72,7 +72,7 @@ function count(){
 
 //カウントが0になったときの処理
 function countzero(){
-      console.log('カウントが0になった!')
+      console.log('カウントが0になった!');
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
       }else{
@@ -337,11 +337,10 @@ window.setInterval(function(){
 }, 1000);
 //カウント
 window.setInterval(function(){
-    if(timeCount == true){
-	    if(gaugewidth != '1px'){
-               count();
-            }else if(gaugewidth == '1px'){
-	       countzero();}
+    if(timeCount == true && gaugewidth != '1px'){
+        count();
+    }else if(gaugewidth == '1px'){
+	countzero();
     }
 }, 100);
 
