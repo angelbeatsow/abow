@@ -37,6 +37,7 @@ let firstPoint = 0;
 let lastPoint = [0,0];
 let howManyDissaper = 0;
 let whatTimeDissaper = 0;
+let whatTimeDissaperInThisTurn = 0;
 let totalDissaper = 0;
 let spendedTurn = 0;
 let timeCount = false;
@@ -81,6 +82,7 @@ function countzero(){
                  $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
+		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
 	            },1000);
       }else{
@@ -88,6 +90,7 @@ function countzero(){
 	           $('timegauge').style.width = '500px';
                     gaugewidth = 500;
                     spendedTurn　= spendedTurn + 1;
+		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
 		    },1000);
       }
@@ -159,10 +162,11 @@ function clickendAction(event){
 	      }
    
 		      
-	      //消したブロックの数を計上
+	      //戦績の処理
 	      totalDissaper = totalDissaper + howManyDissaper;
 	      howManyDissaper = 0;
 	      whatTimeDissaper = whatTimeDissaper + 1;
+	      whatTimeDissaperInThisTurn　= whatTimeDissaper;
 	      
               isRun = true;
         }else if(isRun == false && gaugewidth != 1){
