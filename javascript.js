@@ -364,13 +364,15 @@ window.setInterval(function(){
      }
 }, 1000);
 //カウントsetInterval
-window.setInterval(function(){
+var countinterval = function(){
     if(timeCount == true && gaugewidth != 0){
         count();
     }else if(gaugewidth == 0){
 	countzero();
     }
-}, sousajikan * 20);
+    setTimeout(countinterval,sousajikan * 20);
+}
+setTimeout(countinterval,sousajikan * 20);
 
 
 
