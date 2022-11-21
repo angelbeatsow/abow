@@ -74,9 +74,17 @@ function count(){
 //カウントが0になったときの処理
 function countzero(){
       console.log('カウントが0になった!');
+      $('fadeLayer').style.visibility = "visible";
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction();
+	      setTimeout(function(){
+		      $('fadeLayer').style.visibility = "hidden";
+		      $('fadeLayer2').style.visibility = "visible";
+		      setTimeout(function(){
+			      $('fadeLayer2').style.visibility = "hidden";
+                      },200);
+              },800);
 	      setTimeout(function(){
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
                  $('timegauge').style.width = '500px';
@@ -86,6 +94,13 @@ function countzero(){
                     timeCount = false;
 	            },1000);
       }else{
+	      setTimeout(function(){
+		      $('fadeLayer').style.visibility = "hidden";
+		      $('fadeLayer2').style.visibility = "visible";
+		      setTimeout(function(){
+			      $('fadeLayer2').style.visibility = "hidden";
+                      },200);
+              },800);
 	      setTimeout(function(){
 	           $('timegauge').style.width = '500px';
                     gaugewidth = 500;
