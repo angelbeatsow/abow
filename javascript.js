@@ -58,76 +58,21 @@ function suujihenkan(suuji){
   }
 }
 
-//clickEndAction内のカウント処理
+//カウント処理
 let gaugewedth = 500;
 function count(){
 	gaugewedth = gaugewedth - 10;
-	$('timegauge').style.wedth = gaugewedth +'px';
-	if($('timegauge').style.wedth != 0 + 'px'){
-           setTimeout(count(),100);
-        }else{
-           countzero();
-           return;
-	}
+	$('timegauge').style.wedth = gaugewedth +'px';	
 }
+
+//カウントが0になったときの処理
 function countzero(){
-   //カウントが0になったときの処理
         $(firstPoint).removeEventListener('touchmove',untilClick);
 
-   //clickendAction()のコピー
-	         if(isDissaper == true){
-        isRun = false;
-        isRunning = false;
-        isPissaper = false;
-        
-        //drop wo otosu
-        for(let n = 0;n < 5;n++){
-          for(let row=6;row < 36;row++){
-            if($(IDS[row]).value == 'x'){
-              $(IDS[row]).value = $(IDS[row - 6]).value
-              $(IDS[row]).style.backgroundColor = $(IDS[row - 6]).style.backgroundColor;
-		    if($(IDS[row]).value == heal){
-                   $(IDS[row]).classList.add('marukusuru');
-                }else{
-                   $(IDS[row]).classList.remove('marukusuru');
-                }
-              $(IDS[row - 6]).value = 'x'
-              $(IDS[row - 6]).style.backgroundColor = 'black';
-		     $(IDS[row - 6]).classList.remove('marukusuru');
-            }
-          }
-        } 	      
-	      //x ni drop wo ireru
-        for(let row=0;row < 36;row++){
-            if($(IDS[row]).value == 'x'){
-              let randoma = randomNumber();
-              $(IDS[row]).value = droplist[randoma];
-              $(IDS[row]).style.backgroundColor = dropcolor[randoma];
-	      if($(IDS[row]).value == heal){
-                   $(IDS[row]).classList.add('marukusuru');
-                }else{
-                   $(IDS[row]).classList.remove('marukusuru');
-                }
-            }}
-		      
-	      //消したブロックの数を計上
-	      totalDissaper = totalDissaper + howManyDissaper;
-	      howManyDissaper = 0;
-	      whatTimeDissaper = whatTimeDissaper + 1;
-	      
-              isRun = true;
-        }else if(isRun == false){
-          $(lastPoint[0]).value = lastPoint[1];
-          isRun = true;
-          isRunning = false;
-          isPissaper = false;
-      } 
-//コピーここまで
+        clickendAction();
 	
 	isRun = false;
      isRunning = false;
-     
-	Thread.sleep(1000); // 1秒間だけ処理を止める
          
 	$(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
 	$('timegauge').style.wedth = '500px';
@@ -193,7 +138,6 @@ function clickendAction(event){
 	      //カウントの処理
 	      if(timeCount == false){
 	         timeCount = true;
-		      count();
               }else if($('timegauge').style.wedth != '0px'){
 	      //消したブロックに応じてカウントを増やす
 		     gaugewedth = gaugewedth + howManyDissaper * 10 ;
@@ -372,6 +316,7 @@ function onloadAction(){
   }
 }
   
+//windowアクション
 window.onload = onloadAction();
 //動画が指定時間になったらシークバーを戻す
 window.setInterval(function(){
@@ -379,6 +324,12 @@ window.setInterval(function(){
          player.seekTo(startbyou[douganumber]);
      }
 }, 1000);
+window.setInterval(function(){
+    if(timeCount == true && gaugewidth != '0px'){
+       count();
+    }else if(timeCount == true && gaugewidth == '0px' ){
+	    countzero();
+	    },100);
 
 
 //youtube noseigyo
