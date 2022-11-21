@@ -161,7 +161,7 @@ function clickendAction(event){
 	         timeCount = true;
               }else if($('timegauge').style.width != '1px'){
 	      //消したブロックに応じてカウントを増やす
-		     gaugewidth = gaugewidth + howManyDissaper * 10 ;
+		     gaugewidth = gaugewidth + howManyDissaper * 20 ;
 		    $('timegauge').style.width = gaugewidth + 'px';
 	      }
    
