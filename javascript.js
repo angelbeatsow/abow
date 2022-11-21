@@ -75,8 +75,8 @@ function countzero(){
       console.log('カウントが0になった!');
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
-	      clickendAction();
 	      isRun = false;
+	      clickendAction();
 	      setTimeout(function(){
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
                  $('timegauge').style.width = '500px';
