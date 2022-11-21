@@ -36,6 +36,7 @@ let senumber = 0;
 let firstPoint = 0;
 let lastPoint = [0,0];
 let howManyDissaper = 0;
+let whatTimeDissaper = 0;
 let totalDissaper = 0;
 let spendedTurn = 0;
 let timeCount = false;
@@ -57,15 +58,29 @@ function suujihenkan(suuji){
   }
 }
 
+//clickEndAction内のカウント処理
+let gaugewedth = 450;
 function count(){
-	$('timegauge').style.wedth = $('timegauge').style.wedth - 9;
-   if($('timegauge').style.wedth != 0){
+	$('timegauge').style.wedth = gaugewedth - 9 +'px';
+	gaugewedth = gaugewedth - 9;
+   if($('timegauge').style.wedth > 0){
      setTimeout(count,100);
    }
    //カウントが0になったときの処理
-     isRun = false;
+	$(firstPoint).removeEventListener('touchmove',untilClick,{ passive: false });
+     clickendAction()
+	isRun = false;
      isRunning = false;
-     isDissaper = false;
+     try {
+	Thread.sleep(1000); // 1秒間だけ処理を止める
+         } catch (InterruptedException e) {
+         }
+	$(firstPoint).addEventListener('touchmove',untilClick,{ passive: false });
+	$('timegauge').style.wedth = 450px;
+	gaugewedth = 450;
+	spendedTurn　= spendedTurn + 1;
+	timeCount = false;
+	isRun = true;
 }
 
 function clickAction(event){
@@ -130,11 +145,12 @@ function clickendAction(event){
 	      //消したブロックの数を計上
 	      totalDissaper = totalDissaper + howManyDissaper;
 	      howManyDissaper = 0;
+	      whatTimeDissaper = whatTimeDissaper + 1;
 	      
-        isRun = true;
+              isRun = true;
         }else if(isRun == false){
-        $(lastPoint[0]).value = lastPoint[1];
-        isRun = true;
+          $(lastPoint[0]).value = lastPoint[1];
+          isRun = true;
           isRunning = false;
           isPissaper = false;
       }
