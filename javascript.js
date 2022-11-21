@@ -337,9 +337,9 @@ window.setInterval(function(){
 }, 1000);
 //カウント
 window.setInterval(function(){
-    if(timeCount == true && gaugewidth != '1px'){
+    if(timeCount == true && gaugewidth != 1){
         count();
-    }else if(gaugewidth == '1px'){
+    }else if(gaugewidth == 1){
 	countzero();
     }
 }, 100);
