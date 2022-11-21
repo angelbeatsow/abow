@@ -32,8 +32,8 @@ svg {
 .gauge{
     background-color: rgb(211, 1, 0);
     width: 450px;
-    height: 20px;
-    left: 0;
+    height: 10px;
+    left: 30px;
 }
 
 input{
