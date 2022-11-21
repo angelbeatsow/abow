@@ -328,8 +328,8 @@ window.setInterval(function(){
     if(timeCount == true && gaugewidth != '0px'){
        count();
     }else if(timeCount == true && gaugewidth == '0px' ){
-	    countzero();
-	    },100);
+	    countzero();}
+}, 100);
 
 
 //youtube noseigyo
