@@ -141,7 +141,7 @@ input[value='ライブ']{
   height:530px;
 
   background-color:#000000;
-  opacity:0.3;
+  opacity:0.5;
   visibility:hidden;
   z-index:1;
 }
