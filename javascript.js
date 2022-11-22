@@ -103,7 +103,10 @@ function countzero(){
 
 function fadeLayerFlash(){
 	$('fadeLayer').style.backgroundColor = "#ffffff";
+	$('fadeLayer').style.opacity = "0.4";
         setTimeout(function(){
+            $('fadeLayer').style.opacity = "0.5";
+            setTimeout(function(){
 		$('fadeLayer').style.opacity = "0.4";
 		setTimeout(function(){
                         $('fadeLayer').style.opacity = "0.3";
@@ -118,8 +121,9 @@ function fadeLayerFlash(){
                                    },2);
                            },5);
                         },10);
-                },40);
-        },100);
+                },30);
+            },100);
+        },10);
 }
 
 function clickAction(event){
