@@ -44,6 +44,7 @@ let saidaiCombo = 0;
 let totalDissaper = 0;
 let spendedTurn = 0;
 let timeCount = false;
+let countzeroWorking = false;
 
 function $(id){
   return document.getElementById(id);
@@ -106,6 +107,7 @@ function countzero(){
                     
 		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
+		      countzeroWorking = false;
 	            },1000);
       }else{
 	      //戦績の処理b
@@ -128,6 +130,7 @@ function countzero(){
                     
 		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
+		      countzeroWorking = false;
 		    },1000);
       }
 }
@@ -427,11 +430,13 @@ window.setInterval(function(){
 var countinterval = function(){
     if(timeCount == true && gaugewidth != 0){
         count();
-    }else if(gaugewidth == 0){
+    }else if(gaugewidth == 0 && countzeroWorking = false;){
+	    countzeroWorking = true;
 	countzero();
     }
     setTimeout(countinterval,sousajikan * 20);
 }
+
 setTimeout(countinterval,sousajikan * 20);
 
 
