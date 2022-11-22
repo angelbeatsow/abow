@@ -119,10 +119,10 @@ function fadeLayerFlash(){
 				$('fadeLayer').style.backgroundColor = "#000000";
 				$('fadeLayer').style.opacity = "0.5";
                                    },2);
-                           },5);
-                        },10);
-                },20);
-            },100);
+                           },10);
+                        },20);
+                },40);
+            },200);
         },20);
 }
 
