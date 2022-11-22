@@ -80,6 +80,7 @@ function countzero(){
       console.log('カウントが0になった!');
       $('fadeLayer').style.visibility = "visible";
 	spendedTurn　= spendedTurn + 1;
+	console.log('ターン数:' + spendedTurn);
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction();
