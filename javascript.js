@@ -111,8 +111,8 @@ function fadeLayerFlash(){
 				$('fadeLayer').style.visibility = "hidden";
 				$('fadeLayer').style.backgroundColor = "#000000";
 				$('fadeLayer').style.opacity = "0.5";
-                        },70);
-                },50);
+                        },30);
+                },30);
         },30);
 }
 
