@@ -63,7 +63,7 @@ function suujihenkan(suuji){
   }
 }
 
-//カウント処理
+//カウントを減らす処理
 let sousajikan = 5;
 let gaugewidth = 500;
 function count(){
@@ -96,14 +96,13 @@ function countzero(){
 	      let unko = whatTimeDissaper / spendedTurn;
 	      unko = unko * 100;
 	      $('sensekiComboHeikin').innerHTML = Math.round(unko) / 100;
+	      //ここまで
 	      
 	      setTimeout(function(){
 		      fadeLayerFlash()
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
                     gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
-                    
-		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
 		      countzeroWorking = false;
 	            },1000);
@@ -118,19 +117,19 @@ function countzero(){
 	      let unko = whatTimeDissaper / spendedTurn;
 	      unko = unko * 100;
 	      $('sensekiComboHeikin').innerHTML = Math.round(unko) / 100;
+	      //ここまで
 	      
 	      setTimeout(function(){
 		      fadeLayerFlash()
 	          gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
-                    
-		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
 		      countzeroWorking = false;
 		    },1000);
       }
 }
 
+//ピカッとさせる
 function fadeLayerFlash(){
 	$('fadeLayer').style.opacity = "0.4";
 	$('fadeLayer').style.backgroundColor = "#ffffff";
@@ -178,7 +177,7 @@ function clickendAction(event){
         isRunning = false;
 	      isDissaper = false;
         
-        //drop wo otosu
+        //ブロックを落とす
         for(let n = 0;n < 5;n++){
           for(let row=6;row < 36;row++){
             if($(IDS[row]).value == 'x'){
@@ -195,7 +194,7 @@ function clickendAction(event){
             }
           }
         }
-        //x ni drop wo ireru
+        //xにブロックを入れる
         for(let row=0;row < 36;row++){
             if($(IDS[row]).value == 'x'){
               let randoma = randomNumber();
@@ -210,6 +209,7 @@ function clickendAction(event){
 	      
 	      //カウントの処理
 	      if(timeCount == false){
+		      //カウント開始
 	         timeCount = true;
               }else if($('timegauge').style.width != '0px'){
 	      //消したブロックに応じてカウントを増やす
@@ -231,9 +231,11 @@ function clickendAction(event){
 	      let unchi = totalDissaper / whatTimeDissaper;
 	      unchi = unchi * 100;
 	      $('sensekiRensaHeikin').innerHTML = Math.round(unchi) / 100;
+	      //ここまで
 	      
               isRun = true;
         }else if(isRun == false){
+          //xを元に戻す
           $(lastPoint[0]).value = lastPoint[1];
           isRun = true;
           isRunning = false;
@@ -266,7 +268,7 @@ function untilClick(event){
 
 	console.log('x:' + x + 'y:' + y);
   
-  //zahyou ni aru botan no hantei
+  //基準の座標を取得
   var lastxy = $(lastPoint[0]).getBoundingClientRect();
   let lastx = lastxy.left;
   let lasty = lastxy.top;
@@ -274,10 +276,10 @@ function untilClick(event){
   
   let nnumber = 100;
   
+//基準との位置関係を取得
   if(x > lastx - 80 && x < lastx + 130){
     if(y > lasty - 80 && y < lasty +130){
       
-      //hantei suru
       
       if(x < lastx - 30 && lnumber % 6 != 1){
                  if(y < lasty - 30 && lnumber > 6){
@@ -388,7 +390,7 @@ function onloadAction(){
   function disableScroll(event) {
     event.preventDefault();
   }
-	// スクロール禁止
+	// スクロール禁止ボタンの設定
   document.getElementById('on').onclick = function() {
     // イベントと関数を紐付け
 	  if(document.getElementById('on').value == 'スクロール禁止をonにする'){
@@ -422,7 +424,7 @@ window.setInterval(function(){
          player.seekTo(startbyou[douganumber]);
      }
 }, 1000);
-//カウントsetInterval
+//カウントsetInterval　sousajikanの変更に対応するためsetTimeout
 var countinterval = function(){
     if(timeCount == true && gaugewidth != 0){
         count();
@@ -437,7 +439,7 @@ setTimeout(countinterval,sousajikan * 20);
 
 
 
-//youtube noseigyo
+//youtube no seigyo
 var tag = document.createElement('script');
 
       tag.src = "https://www.youtube.com/iframe_api";
@@ -470,7 +472,7 @@ function onPlayerStateChange(event) {
    }
 }
 
-//select botan wo oshitatoki no syori
+//ライブボタンの設定
 function bgmChange(){
   let select = $('bgmSelect').value
   for(let aunt = 1;aunt < 24;aunt++){
