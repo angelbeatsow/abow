@@ -81,7 +81,7 @@ function countzero(){
 	      clickendAction();
 	      
 	      setTimeout(function(){
-		      $('fadeLayer').style.visibility = "hidden";
+		      fadeLayerFlash()
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
                     gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
@@ -91,7 +91,7 @@ function countzero(){
 	            },1000);
       }else{
 	      setTimeout(function(){
-		      $('fadeLayer').style.visibility = "hidden";
+		      fadeLayerFlash()
 	          gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
                     spendedTurn　= spendedTurn + 1;
@@ -99,6 +99,20 @@ function countzero(){
                     timeCount = false;
 		    },1000);
       }
+}
+
+function fadeLayerFlash(){
+	$('fadeLayer').style.color = "#ffffff";
+        setTimeout(function(){
+		$('fadeLayer').style.opacity = "0.2";
+		setTimeout(function(){
+			$('fadeLayer').style.opacity = "0.1";
+			setTimeout(function(){
+				$('fadeLayer').style.visibility = "hidden";
+				$('fadeLayer').style.color = "#000000";
+                        },100);
+                },200);
+        },300);
 }
 
 function clickAction(event){
