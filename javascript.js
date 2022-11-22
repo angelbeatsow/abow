@@ -121,9 +121,9 @@ function fadeLayerFlash(){
                                    },2);
                            },5);
                         },10);
-                },18);
-            },60);
-        },6);
+                },20);
+            },100);
+        },20);
 }
 
 function clickAction(event){
