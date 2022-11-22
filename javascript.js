@@ -104,15 +104,15 @@ function countzero(){
 function fadeLayerFlash(){
 	$('fadeLayer').style.backgroundColor = "#ffffff";
         setTimeout(function(){
-		$('fadeLayer').style.opacity = "0.2";
+		$('fadeLayer').style.opacity = "0.3";
 		setTimeout(function(){
 			$('fadeLayer').style.opacity = "0.1";
 			setTimeout(function(){
 				$('fadeLayer').style.visibility = "hidden";
 				$('fadeLayer').style.backgroundColor = "#000000";
                         },100);
-                },200);
-        },300);
+                },100);
+        },100);
 }
 
 function clickAction(event){
