@@ -64,7 +64,7 @@ function suujihenkan(suuji){
 
 //ツイート内容の更新
 function tweetKoushin(){
-   $('tweet').data-text = '経過ターン数:' + spendedTurn + 'ターン' +
+   $('tweet').dataText = '経過ターン数:' + spendedTurn + 'ターン' +
                           '消したブロック数合計:' + totalDissaper + '個' +
                           '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)' +
 	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)' +
