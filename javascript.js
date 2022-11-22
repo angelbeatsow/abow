@@ -430,7 +430,7 @@ window.setInterval(function(){
 var countinterval = function(){
     if(timeCount == true && gaugewidth != 0){
         count();
-    }else if(gaugewidth == 0 && countzeroWorking = false;){
+    }else if(gaugewidth == 0 && countzeroWorking == false){
 	    countzeroWorking = true;
 	countzero();
     }
