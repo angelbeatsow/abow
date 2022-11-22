@@ -36,6 +36,8 @@ let senumber = 0;
 let firstPoint = 0;
 let lastPoint = [0,0];
 let howManyDissaper = 0;
+let saidaiDissaper = 0;
+let totalCombsuu = 0;
 let whatTimeDissaper = 0;
 let whatTimeDissaperInThisTurn = 0;
 let totalDissaper = 0;
@@ -76,25 +78,38 @@ function count(){
 function countzero(){
       console.log('カウントが0になった!');
       $('fadeLayer').style.visibility = "visible";
+	spendedTurn　= spendedTurn + 1;
       if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction();
+	      
+	      //戦績の処理b
+	      $('sensekiTotalHeikin').innerHTML = Math.trunc(totalDissaper * 100 / spendedTurn) / 100;
+	      $('sensekiCombo').innerHTML = whatTimeDissaperInThisTurn;
+	      whatTimeDissaperInThisTurn = 0;
+	      $('sensekiComboHeikin').innerHTML = Math.trunc(whatTimeDissaper * 100 / spendedTurn) / 100;
 	      
 	      setTimeout(function(){
 		      fadeLayerFlash()
 	         $(firstPoint).addEventListener('touchmove',untilClick,{ passive: false});
                     gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
-                    spendedTurn　= spendedTurn + 1;
+                    
 		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
 	            },1000);
       }else{
+	      //戦績の処理b
+	      $('sensekiTotalHeikin').innerHTML = Math.trunc(totalDissaper * 100 / spendedTurn) / 100;
+	      $('sensekiCombo').innerHTML = whatTimeDissaperInThisTurn;
+	      whatTimeDissaperInThisTurn = 0;
+	      $('sensekiComboHeikin').innerHTML = Math.trunc(whatTimeDissaper * 100 / spendedTurn) / 100;
+	      
 	      setTimeout(function(){
 		      fadeLayerFlash()
 	          gaugewidth = 500;
 		      $('timegauge').style.width = gaugewidth + 'px';
-                    spendedTurn　= spendedTurn + 1;
+                    
 		    whatTimeDissaperInThisTurn = 0;
                     timeCount = false;
 		    },1000);
@@ -188,11 +203,17 @@ function clickendAction(event){
 	      }
    
 		      
-	      //戦績の処理
+	      //戦績の処理a
 	      totalDissaper = totalDissaper + howManyDissaper;
+	      $('sensekiTotal').innerHTML = totalDissaper;
+	      if(saidaiDissaper > howManyDissaper){
+		      saidaiDissaper = howManyDissaper;
+		      $('sensekiRensa').innerHTML = saidaiDissaper;
+		      }
 	      howManyDissaper = 0;
 	      whatTimeDissaper = whatTimeDissaper + 1;
 	      whatTimeDissaperInThisTurn　= whatTimeDissaper;
+	      $('sensekiRensaHeikin').innerHTML = Math.trunc(totalDissaper *100 / whatTimeDissaper) / 100;
 	      
               isRun = true;
         }else if(isRun == false){
