@@ -105,9 +105,9 @@ function fadeLayerFlash(){
 	$('fadeLayer').style.backgroundColor = "#ffffff";
 	$('fadeLayer').style.opacity = "0.4";
         setTimeout(function(){
-            $('fadeLayer').style.opacity = "0.5";
+            $('fadeLayer').style.opacity = "0.7";
             setTimeout(function(){
-		$('fadeLayer').style.opacity = "0.4";
+		$('fadeLayer').style.opacity = "0.5";
 		setTimeout(function(){
                         $('fadeLayer').style.opacity = "0.3";
 			setTimeout(function(){
@@ -121,8 +121,8 @@ function fadeLayerFlash(){
                                    },2);
                            },5);
                         },10);
-                },30);
-            },100);
+                },25);
+            },200);
         },10);
 }
 
