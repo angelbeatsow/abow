@@ -102,7 +102,7 @@ function countzero(){
 }
 
 function fadeLayerFlash(){
-	$('fadeLayer').style.color = "#ffffff";
+	$('fadeLayer').style.background-color = "#ffffff";
         setTimeout(function(){
 		$('fadeLayer').style.opacity = "0.2";
 		setTimeout(function(){
