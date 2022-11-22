@@ -114,7 +114,7 @@ function countzero(){
 	      let un = totalDissaper / spendedTurn;
 	      un = un * 100;
 	      $('sensekiTotalHeikin').innerHTML = Math.round(un) / 100;
-	      if(saidaiCombo > whatTimeDissaperInThisTurn){
+	      if(saidaiCombo < whatTimeDissaperInThisTurn){
 		      saidaiCombo = whatTimeDissaperInThisTurn;
 	              $('sensekiCombo').innerHTML = saidaiCombo;
               }
