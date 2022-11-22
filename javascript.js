@@ -40,6 +40,7 @@ let saidaiDissaper = 0;
 let totalCombsuu = 0;
 let whatTimeDissaper = 0;
 let whatTimeDissaperInThisTurn = 0;
+let saidaiCombo = 0;
 let totalDissaper = 0;
 let spendedTurn = 0;
 let timeCount = false;
@@ -84,10 +85,15 @@ function countzero(){
 	      clickendAction();
 	      
 	      //戦績の処理b
-	      $('sensekiTotalHeikin').innerHTML = Math.trunc(totalDissaper * 100 / spendedTurn) / 100;
-	      $('sensekiCombo').innerHTML = whatTimeDissaperInThisTurn;
+	      let un = totalDissaper / spendedTurn;
+	      $('sensekiTotalHeikin').innerHTML = Math.trunc(un * 100) / 100;
+	      if(saidaiCombo > whatTimeDissaperInThisTurn){
+		      saidaiCombo = whatTimeDissaperInThisTurn;
+	              $('sensekiCombo').innerHTML = saidaiCombo;
+              }
 	      whatTimeDissaperInThisTurn = 0;
-	      $('sensekiComboHeikin').innerHTML = Math.trunc(whatTimeDissaper * 100 / spendedTurn) / 100;
+	      let chi = whatTimeDissaper / spendedTurn;
+	      $('sensekiComboHeikin').innerHTML = Math.trunc(chi * 100) / 100;
 	      
 	      setTimeout(function(){
 		      fadeLayerFlash()
@@ -212,8 +218,9 @@ function clickendAction(event){
 		      }
 	      howManyDissaper = 0;
 	      whatTimeDissaper = whatTimeDissaper + 1;
-	      whatTimeDissaperInThisTurn　= whatTimeDissaper;
-	      $('sensekiRensaHeikin').innerHTML = Math.trunc(totalDissaper *100 / whatTimeDissaper) / 100;
+	      whatTimeDissaperInThisTurn　= whatTimeDissaperInThisTurn + 1;
+	      let unchi = totalDissaper / whatTimeDissaper;
+	      $('sensekiRensaHeikin').innerHTML = Math.trunc(unchi * 100) / 100;
 	      
               isRun = true;
         }else if(isRun == false){
