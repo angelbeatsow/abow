@@ -116,6 +116,9 @@ input[value='l']{
 input[value='h']{
   color: rgb(255, 185, 231);
 }
+input[value='x']{
+  color: black;
+}
 
 input[value='配置をシャッフル']{
   color: #FFFEFF;
