@@ -116,10 +116,10 @@ function fadeLayerFlash(){
 				$('fadeLayer').style.backgroundColor = "#000000";
 				$('fadeLayer').style.opacity = "0.5";
                                    
-                        },40);
-                },80);
-            },320);
-        },80);
+                        },1000);
+                },1000);
+            },1000);
+        },1000);
 }
 
 function clickAction(event){
