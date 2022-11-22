@@ -118,12 +118,12 @@ function fadeLayerFlash(){
 				$('fadeLayer').style.visibility = "hidden";
 				$('fadeLayer').style.backgroundColor = "#000000";
 				$('fadeLayer').style.opacity = "0.5";
-                                   },2);
-                           },10);
-                        },20);
-                },40);
-            },200);
-        },20);
+                                   },10);
+                           },20);
+                        },40);
+                },80);
+            },300);
+        },80);
 }
 
 function clickAction(event){
