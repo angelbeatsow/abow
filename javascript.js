@@ -111,15 +111,12 @@ function fadeLayerFlash(){
 		setTimeout(function(){
                         $('fadeLayer').style.opacity = "0.3";
 			setTimeout(function(){
-                           $('fadeLayer').style.opacity = "0.2";
-                           setTimeout(function(){
 				   $('fadeLayer').style.opacity = "0.1";
                                    setTimeout(function(){
 				$('fadeLayer').style.visibility = "hidden";
 				$('fadeLayer').style.backgroundColor = "#000000";
 				$('fadeLayer').style.opacity = "0.5";
-                                   },10);
-                           },20);
+                                   },20);
                         },40);
                 },80);
             },300);
