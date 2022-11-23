@@ -7,8 +7,13 @@ body{
     margin: auto;
     padding: 0;
     }
+    
 div {
     text-align: center;
+}
+
+input{
+  font-size: 30px;
 }
 
 .titlediv {
@@ -46,8 +51,13 @@ svg {
     top: 4px;
 }
 
-input{
-  font-size: 30px;
+.controller {
+  position: absolute;
+  transform:rotate(90deg);
+  height: 30px;
+  top: 48px;
+  left: 490px;
+  background-color: transparent;
 }
 
 .wakudiv{
@@ -90,14 +100,6 @@ input{
   overflow: hidden;
 }
 
-.controller {
-  position: fixed;
-  transform:rotate(90deg);
-  height: 30px;
-  top: 100px;
-  right: 50px;
-  background-color: transparent;
-}
 
 input[value='f']{
   color: rgb(255, 230, 133);
