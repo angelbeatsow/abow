@@ -91,7 +91,7 @@ input{
 }
 
 .controller {
-  position: relative;
+  position: fixed;
   transform:rotate(90deg);
   top: 100px;
   right: 0;
