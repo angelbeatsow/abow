@@ -445,12 +445,12 @@ $('sanbyouOn').onclick = function() {
 function tweet(){
    let sanbyouText = '';
    if(sousajikan == 8){
-	 sanbyouText = '+3秒:on\n';
+	 sanbyouText = '＋3秒:on%0a';
    }
-   let dataText =sanbyouText + '経過ターン数:' + spendedTurn + 'ターン\n' +
-                          '消したブロック数合計:' + totalDissaper + '個\n' +
-                          '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)\n' +
-	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)\n' +
+   let dataText =sanbyouText + '経過ターン数:' + spendedTurn + 'ターン%0a' +
+                          '消したブロック数合計:' + totalDissaper + '個%0a' +
+                          '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)%0a' +
+	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)%0a' +
 	                  'ABOW(仮)';
    let dataUrl = 'https://angelbeatsow.github.io/abow/';
 	window.open('https://twitter.com/share?text=' + dataText + '&url=' + dataUrl);
