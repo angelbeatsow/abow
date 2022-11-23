@@ -62,20 +62,6 @@ function suujihenkan(suuji){
   }
 }
 
-//ツイートボタン
-function tweet(){
-   let sanbyouText = '';
-   if(sousajikan == 8){
-	 sanbyouText = '+3秒:on\n';
-   }
-   let dateText =sanbyouText + '経過ターン数:' + spendedTurn + 'ターン\n' +
-                          '消したブロック数合計:' + totalDissaper + '個\n' +
-                          '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)\n' +
-	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)\n' +
-	                  'ABOW(仮)';
-   let dataUrl = 'https://angelbeatsow.github.io/abow/';
-	window.open('https://twitter.com/share?text=' + dataText + '&url=' + dataUrl);
-}
 
 //カウントを減らす処理
 let sousajikan = 5;
@@ -397,6 +383,7 @@ function onloadAction(){
     }
   $('reset').onclick = resetAction;
   $('bgmSelectButton').onclick = bgmChange;
+  $('tweetButton').onclick = rweer;
   }
 	
 	
@@ -453,6 +440,21 @@ $('sanbyouOn').onclick = function() {
            $('sensekiComboHeikin').innerHTML = 0;
    }
 }  
+
+//ツイートボタン
+function tweet(){
+   let sanbyouText = '';
+   if(sousajikan == 8){
+	 sanbyouText = '+3秒:on\n';
+   }
+   let dateText =sanbyouText + '経過ターン数:' + spendedTurn + 'ターン\n' +
+                          '消したブロック数合計:' + totalDissaper + '個\n' +
+                          '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)\n' +
+	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)\n' +
+	                  'ABOW(仮)';
+   let dataUrl = 'https://angelbeatsow.github.io/abow/';
+	window.open('https://twitter.com/share?text=' + dataText + '&url=' + dataUrl);
+}
 
 
 //windowアクションですよーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
