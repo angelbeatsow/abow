@@ -53,6 +53,7 @@ svg {
 
 .controller {
   position: absolute;
+  transform-origin:0 0;
   transform:rotate(90deg);
   height: 30px;
   top: 48px;
