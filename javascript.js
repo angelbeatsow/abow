@@ -452,8 +452,7 @@ function tweet(){
                           '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)%0a' +
 	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)%0a' +
 	                  'ABOW(仮)';
-   let dataUrl = 'https://angelbeatsow.github.io/abow/';
-	window.open('https://twitter.com/share?text=' + dataText + '&url=' + dataUrl);
+	window.open('https://twitter.com/share?text=' + dataText + '&url=https://angelbeatsow.github.io/abow/&hashtags=ABOW_仮');
 }
 
 
