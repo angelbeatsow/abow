@@ -447,7 +447,7 @@ function tweet(){
    if(sousajikan == 8){
 	 sanbyouText = '+3秒:on\n';
    }
-   let dateText =sanbyouText + '経過ターン数:' + spendedTurn + 'ターン\n' +
+   let dataText =sanbyouText + '経過ターン数:' + spendedTurn + 'ターン\n' +
                           '消したブロック数合計:' + totalDissaper + '個\n' +
                           '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)\n' +
 	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)\n' +
