@@ -407,7 +407,7 @@ function onloadAction(){
 
 //操作時間+3秒ボタン
 $('sanbyouOn').onclick = function() {
-   if(timeCount == false){
+   if(timeCount == true){
 	   return;
    }
    if($('sanbyouOn').value == 'onにする'){
