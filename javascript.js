@@ -383,7 +383,7 @@ function onloadAction(){
     }
   $('reset').onclick = resetAction;
   $('bgmSelectButton').onclick = bgmChange;
-  $('tweetButton').onclick = rweer;
+  $('tweetButton').onclick = tweet;
   }
 	
 	
