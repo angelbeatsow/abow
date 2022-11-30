@@ -44,6 +44,9 @@ let totalDissaper = 0;
 let spendedTurn = 0;
 let timeCount = false;
 let countzeroWorking = false;
+let tensyonSuuji = 0;
+let tensyonKaisuu = 0;
+let tensyonKoritsuSentaku = false;
 
 function $(id){
   return document.getElementById(id);
@@ -80,9 +83,46 @@ function count(){
 function countzero(){
       console.log('カウントが0になった!');
       $('fadeLayer').style.visibility = "visible";
-	spendedTurn　= spendedTurn + 1;
-	console.log('ターン数:' + spendedTurn);
-      if(isRun == false){
+  spendedTurn　= spendedTurn + 1;
+  console.log('ターン数:' + spendedTurn);
+  
+  //high tensyon no baai
+  if($('tensyonButton').innerHTML == 9999){
+    console.log('high tension finished ^~^');
+    clickendAction();
+    //戦績の処理b
+	      $('sensekiTurn').innerHTML = spendedTurn;
+	      if(saidaiCombo < whatTimeDissaperInThisTurn){
+		      saidaiCombo = whatTimeDissaperInThisTurn;
+	              $('sensekiCombo').innerHTML = saidaiCombo;
+              }
+       whatTimeDissaperInThisTurn = 0;
+	      let unko = whatTimeDissaper / spendedTurn;
+	      unko = unko * 100;
+	      $('sensekiComboHeikin').innerHTML = Math.round(unko) / 100;
+	      //ここまで
+    tensyonSuuji = 0;
+    $('tensyonButton').innerHTML = '0';
+    $('tensyonButton').style.color = 'rgb(172, 178, 180)';
+    $('tensyonButton').style.backgroundColor = 'rgb(99, 102, 101)';
+    for(let row=0;row < 36;row++){
+       $(IDS[row]).removeEventListener('touchstart',tensyonAction,{ passive: true });
+    }
+    setTimeout(function(){
+		      fadeLayerFlash()
+       for(let row=0;row < 36;row++){
+          $(IDS[row]).removeEventListener('touchstart',tensyonAction,{ passive: true });
+          $(IDS[row]).addEventListener('touchstart',clickAction,{ passive: false });
+          $(IDS[row]).addEventListener('touchend',clickendAction);
+          $(IDS[row]).addEventListener('touchmove',untilClick,{ passive: false });
+       }
+      gaugewidth = 500;
+      $('timegauge').style.width = gaugewidth + 'px';
+      timeCount = false;
+      countzeroWorking = false;
+    },1000);
+    
+  }else if(isRun == false){
         $(firstPoint).removeEventListener('touchmove',untilClick);
 	      clickendAction();
 	      
@@ -167,12 +207,15 @@ function clickAction(event){
   isRun = false;
   isRunning = true;
   $(firstPoint).value = 'x';
-  console.log(lastPoint[0]);
-  console.log(lastPoint[1]);
+  console.log('last point is ' + lastPoint[0]);
+  console.log('last value is ' + lastPoint[1]);
 }
 
 function clickendAction(event){
-      if(isDissaper == true){
+  if(tensyonKoritsuSentaku){
+    return;
+  }
+      if(isDissaper == true || $('tensyonButton').innerHTML == 9999){
         isRun = false;
         isRunning = false;
 	      isDissaper = false;
@@ -210,27 +253,46 @@ function clickendAction(event){
 	      //カウントの処理
 	      if(timeCount == false){
 		      //カウント開始
-	         timeCount = true;
-              }else if($('timegauge').style.width != '0px'){
+	        timeCount = true;
+	      }else if($('timegauge').style.width != '0px' && $('tensyonButton').innerHTML != 9999){
 	      //消したブロックに応じてカウントを増やす
-		     gaugewidth = gaugewidth + howManyDissaper * 10 * 5 / sousajikan ;
-		    $('timegauge').style.width = gaugewidth + 'px';
+		        gaugewidth = gaugewidth + howManyDissaper * 10 * 5 / sousajikan ;
+		        $('timegauge').style.width = gaugewidth + 'px';
+	      }else if($('tensyonButton').innerHTML == 9999){
+	        gaugewidth = gaugewidth + howManyDissaper * 5 * 5 / sousajikan ;
+		        $('timegauge').style.width = gaugewidth + 'px';
 	      }
    
 		      
 	      //戦績の処理a
 	      totalDissaper = totalDissaper + howManyDissaper;
-	      $('sensekiTotal').innerHTML = totalDissaper;
-	      if(saidaiDissaper < howManyDissaper){
-		      saidaiDissaper = howManyDissaper;
-		      $('sensekiRensa').innerHTML = saidaiDissaper;
-		      }
-	      howManyDissaper = 0;
+        $('sensekiTotal').innerHTML = totalDissaper;
+	          if(saidaiDissaper < howManyDissaper){
+		           saidaiDissaper = howManyDissaper;
+	            $('sensekiRensa').innerHTML = saidaiDissaper;
+	          }
+        
+        if($('tensyonButton').innerHTML != 9999 || tensyonSuuji != 100){
+        //tensyon no suuji no syori
+        if(howManyDissaper < 7 && howManyDissaper > 1){
+          tensyonSuuji = tensyonSuuji + howManyDissaper - 1;
+        }else if(howManyDissaper >= 7){
+          tensyonSuuji = tensyonSuuji + 5;
+        }
+        if(tensyonSuuji >= 100){
+          tensyonSuuji = 100;
+          $('tensyonButton').style.color = '#ffffff';
+        }
+        $('tensyonButton').innerHTML = tensyonSuuji;
+        //tensyon no suuji no syori kokomade
+        }
+        
 	      whatTimeDissaper = whatTimeDissaper + 1;
 	      whatTimeDissaperInThisTurn　= whatTimeDissaperInThisTurn + 1;
 	      let unchi = totalDissaper / whatTimeDissaper;
 	      unchi = unchi * 100;
 	      $('sensekiRensaHeikin').innerHTML = Math.round(unchi) / 100;
+        howManyDissaper = 0;
 	      //ここまで
 	      
               isRun = true;
@@ -265,8 +327,8 @@ function untilClick(event){
    		x = event.clientX;
    		y = event.clientY;
 	}
-
-	console.log('x:' + x + 'y:' + y);
+  
+  
   
   //基準の座標を取得
   var lastxy = $(lastPoint[0]).getBoundingClientRect();
@@ -384,6 +446,7 @@ function onloadAction(){
   $('reset').onclick = resetAction;
   $('bgmSelectButton').onclick = bgmChange;
   $('tweetButton').onclick = tweet;
+  $('tensyonButton').onclick = tensyonOn;
   }
 	
 	
@@ -408,8 +471,17 @@ function onloadAction(){
 //操作時間+3秒ボタン
 $('sanbyouOn').onclick = function() {
    if(timeCount == true){
+     alert('操作中は変更できません。')
+     return;
+   }
+  
+  if($('tensyonButton').innerHTML == 9999){
+    alert('ハイテンション中は変更できません。')
 	   return;
    }
+  
+  var really = confirm('戦績とテンション値がリセットされますが、よろしいですか?');
+  if(really){
    if($('sanbyouOn').value == 'onにする'){
 	   sousajikan = 8;
 	   $('sanbyouOn').value = 'offにする';
@@ -418,12 +490,16 @@ $('sanbyouOn').onclick = function() {
            saidaiDissaper = 0;
            whatTimeDissaper = 0;
            saidaiCombo = 0;
+           tensyonKaisuu = 0;
+           tensyonSuuji = 0;
            $('sensekiTurn').innerHTML = 0;
            $('sensekiTotal').innerHTML = 0;
            $('sensekiRensa').innerHTML = 0;
            $('sensekiRensaHeikin').innerHTML = 0;
            $('sensekiCombo').innerHTML = 0;
            $('sensekiComboHeikin').innerHTML = 0;
+           $('sensekiTensyon').innerHTML = 0;
+           $('tensyonButton').innerHTML = 0;
    }else{
 	   sousajikan = 5;
 	   $('sanbyouOn').value = 'onにする';
@@ -432,17 +508,25 @@ $('sanbyouOn').onclick = function() {
            saidaiDissaper = 0;
            whatTimeDissaper = 0;
            saidaiCombo = 0;
+           tensyonKaisuu = 0;
+           tensyonSuuji = 0;
            $('sensekiTurn').innerHTML = 0;
            $('sensekiTotal').innerHTML = 0;
            $('sensekiRensa').innerHTML = 0;
            $('sensekiRensaHeikin').innerHTML = 0;
            $('sensekiCombo').innerHTML = 0;
            $('sensekiComboHeikin').innerHTML = 0;
+           $('sensekiTensyon').innerHTML = 0;
+           $('tensyonButton').innerHTML = 0;
    }
+  }
 }  
 
 //ツイートボタン
 function tweet(){
+  if(gaugewidth != 500){
+    return;
+  }
    let sanbyouText = '';
    if(sousajikan == 8){
 	 sanbyouText = '＋3秒:on%0a';
@@ -451,6 +535,7 @@ function tweet(){
                           '消したブロック数合計:' + totalDissaper + '個%0a' +
                           '一度に消したブロック最大数:' + saidaiDissaper + '個(平均:' + $('sensekiRensaHeikin').innerHTML + '個)%0a' +
 	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)%0a' +
+                  'ハイテンション:' + tensyonKaisuu + '回%0a' +
 	                  'ABOW(仮)';
 	window.open('https://twitter.com/share?text=' + dataText + '&url=https://angelbeatsow.github.io/abow/&hashtags=ABOW_仮');
 }
@@ -521,3 +606,102 @@ function bgmChange(){
 	    player.seekTo(startbyou[douganumber]);
 	   }
 }}
+
+//tensyon button no ivent
+function tensyonOn(){
+  console.log('high tension?')
+  if($('tensyonButton').innerHTML == 100 && gaugewidth == 500){
+    console.log('high-tension!!');
+    tensyonKaisuu++;
+    $('sensekiTensyon').innerHTML = tensyonKaisuu;
+    $('tensyonButton').innerHTML = '9999';
+    $('tensyonButton').style.color = 'rgb(194, 33, 48)';
+    $('tensyonButton').style.backgroundColor = 'rgb(255, 242, 130)';
+    for(let row=0;row < 36;row++){
+      $(IDS[row]).removeEventListener('touchstart',clickAction,{ passive: false });
+      $(IDS[row]).removeEventListener('touchend',clickendAction);
+      $(IDS[row]).removeEventListener('touchmove',untilClick,{ passive: false });
+      $(IDS[row]).addEventListener('touchstart',tensyonAction,{ passive: true });
+    }
+  }
+}
+
+function tensyonAction(event){
+  let touchId = event.target.id ;
+  let touchValue = $(touchId).value ;
+  $(touchId).value = 'x';
+  howManyDissaper = 1;
+  tensyonKoritsuSentaku = false;
+  for(let tenshichan = 1;tenshichan <= 18;tenshichan++){
+    for(let row=0;row < 36;row++){
+      if($(IDS[row]).value == 'x'){
+        if(row >= 7){
+           if($(IDS[row - 7]).value == touchValue && row % 6 != 0){
+             $(IDS[row - 7]).value = 'x';
+             howManyDissaper++;
+           }
+        }
+        if(row >= 6){
+           if($(IDS[row - 6]).value == touchValue){
+             $(IDS[row - 6]).value = 'x';
+             howManyDissaper++;
+           }
+           if($(IDS[row - 5]).value == touchValue && row % 6 != 5){
+             $(IDS[row - 5]).value = 'x';
+             howManyDissaper++;
+           }
+        }
+        if(row % 6 != 0){
+           if($(IDS[row - 1]).value == touchValue){
+             $(IDS[row - 1]).value = 'x';
+             howManyDissaper++;
+           }
+        }
+        if(row % 6 != 5){
+           if($(IDS[row + 1]).value == touchValue){
+             $(IDS[row + 1]).value = 'x';
+             howManyDissaper++;
+           }
+        }
+        if(row <= 29){
+           if($(IDS[row + 5]).value == touchValue && row % 6 != 0){
+             $(IDS[row + 5]).value = 'x';
+             howManyDissaper++;
+           }
+           if($(IDS[row + 6]).value == touchValue){
+             $(IDS[row + 6]).value = 'x';
+             howManyDissaper++;
+           }
+        }
+        if(row <= 28){
+           if($(IDS[row + 7]).value == touchValue && row % 6 != 5){
+             $(IDS[row + 7]).value = 'x';
+             howManyDissaper++;
+           }
+        }
+      }
+    }
+  }
+  if(howManyDissaper == 1){
+    tensyonKoritsuSentaku = true;
+    $(touchId).value = touchValue;
+    howManyDissaper = 0;
+  }else{
+    //カウントの処理
+	      if(timeCount == false){
+	        timeCount = true;
+	      }
+    //
+     for(let row=0;row < 36;row++){
+       $(IDS[row]).removeEventListener('touchstart',tensyonAction,{ passive: true });
+     }
+       setTimeout(function(){
+          clickendAction();
+         if(gaugewidth != 0){
+          for(let row=0;row < 36;row++){
+            $(IDS[row]).addEventListener('touchstart',tensyonAction,{ passive: true });
+          }
+         }
+       },250);
+  }
+}
