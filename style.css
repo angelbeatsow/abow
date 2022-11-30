@@ -42,7 +42,7 @@ svg {
   margin-bottom: 30px;
   color: rgb(172, 178, 180);
   font-size: 60px;
-  text-align: center;
+  padding: 10px 0;
   font-family: 'Coda Caption','Impact',sans-serif;
 }
 
