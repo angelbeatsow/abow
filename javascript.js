@@ -613,6 +613,7 @@ function tensyonOn(){
   if($('tensyonButton').innerHTML == 100 && gaugewidth == 500){
     console.log('high-tension!!');
     tensyonKaisuu++;
+    fadeLayerFlash()
     $('sensekiTensyon').innerHTML = tensyonKaisuu;
     $('tensyonButton').innerHTML = '9999';
     $('tensyonButton').style.color = 'rgb(194, 33, 48)';
