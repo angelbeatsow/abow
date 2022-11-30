@@ -1,5 +1,6 @@
 body{
     overscroll-behavior-y: none;
+    touch-action: manipulation;
     text-align: center;
     font-size: 30px;
     width: 900px;
