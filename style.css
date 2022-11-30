@@ -34,6 +34,18 @@ svg {
   stroke-linejoin: round;
 }
 
+#tensyonButton {
+  width: 80px;
+  height: 80px;
+  border-radius:100%;
+  background-color: rgb(99, 102, 101);
+  margin-bottom: 30px;
+  color: rgb(172, 178, 180);
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Coda Caption','Impact',sans-serif;
+}
+
 .gaugep{
    position: relative;
    background-color: rgb(222, 219, 228);
