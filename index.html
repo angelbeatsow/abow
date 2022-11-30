@@ -4,10 +4,13 @@
   <html lang="ja">
 <head>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Coda+Caption&display=swap" rel="stylesheet">
   <content="text/html; charset=UTF-8">
     <meta name="google" value="notranslate"/>
     <meta name="google-site-verification" content="a_QmaDekA5dgJhX54lV_ZBcJIt8eVWWiRSTqyI6Lbdg" />
-    <meta name="viewport" content="width=900px, user-scalable=yes">
+    <meta name="viewport" content="width=900, user-scalable=yes">
     <meta name="description" content="サ終したスマホゲーム『AngelBeats~OperationWars~』(エンジェルビーツオペレーションウォーズ)の一筆書きパズルを再現した、スマホ・タブレット用ブラウザゲームです!" >
  <title>ABOW(仮)</title>
     </head>
@@ -16,6 +19,9 @@
       <svg width="480px" height="100px">
         <text class='titlemoji' x="50%" y="90%" text-anchor="middle" >ABOW(仮)</text>
         </svg>
+    </div>
+    <div>
+       <button id='tensyonButton'>0</button>
     </div>
   <div class='gaugep'>
      <div class="gauge" id="timegauge"></div>
@@ -84,13 +90,13 @@
   <div style="color:#FFFEFF">一度に消したブロック平均数: <text style="color:rgb(248, 247, 27)" id='sensekiRensaHeikin'>0</text>個</div>
   <div style="color:#FFFEFF">最大コンボ数: <text style="color:rgb(248, 247, 27)" id='sensekiCombo'>0</text>コンボ</div>
   <div style="color:#FFFEFF">平均コンボ数: <text style="color:rgb(248, 247, 27)" id='sensekiComboHeikin'>0</text>コンボ</div>
+  <div style="color:#FFFEFF">ハイテンション: <text style="color:rgb(248, 247, 27)" id='sensekiTensyon'>0</text>回</div>
   <div style='margin: 0 auto;'><button id='tweetButton' style='background-color:rgb(50, 168, 224); color:#FFFFFF'>ツイート</button>
   </div>
 </div>
           
 <div style='margin-top:30px; margin-bottom:30px;'><text style="color:#FFFEFF">操作時間+3秒:</text>
   <input type='button' id='sanbyouOn' value='onにする' class='resetbutton' style='width:150px;'></input>
-<text style="color:#FFFEFF; font-size:50%; margin-left:25px">※戦績がリセットされます</text>
 </div>
 
         <div class='resetbuttondayo'>
