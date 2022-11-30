@@ -45,6 +45,8 @@ svg {
   color: rgb(172, 178, 180);
   font-size: 60px;
   font-family: 'Coda Caption','Impact',sans-serif;
+    line-height: 2;
+  text-align: center;
 }
 
 .gaugep{
