@@ -35,6 +35,8 @@ svg {
   stroke-linejoin: round;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption&display=swap');
+
 #tensyonButton {
   width: 128px;
   height: 128px;
