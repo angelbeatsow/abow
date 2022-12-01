@@ -19,7 +19,7 @@ input{
 
 .titlediv {
     background: linear-gradient(to bottom, #4987F6, #42BDF9);
-    height: 300px;
+    height: 250px;
 }
 
 svg {
@@ -42,7 +42,7 @@ svg {
   border-radius:100%;
   background-color: rgb(99, 102, 101);
   margin-bottom: 30px;
-    margin-top: 30px;
+    margin-top: 50px;
   color: rgb(172, 178, 180);
   font-size: 64px;
   font-family: 'Coda Caption';
