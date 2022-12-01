@@ -19,7 +19,7 @@ input{
 
 .titlediv {
     background: linear-gradient(to bottom, #4987F6, #42BDF9);
-    margin-bottom: 105px;
+    height: 300px;
 }
 
 svg {
