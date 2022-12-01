@@ -29,7 +29,6 @@ svg {
 .titlemoji {
     font-size: 66px;
     font-weight: 900;
-    font-family: 'Coda Caption';
   fill: #FBFEFE;
   stroke: #E40011;
   stroke-width: 2;
@@ -46,6 +45,7 @@ svg {
   color: rgb(172, 178, 180);
   font-size: 64px;
   font-family: 'Coda Caption';
+  font-weight: 800;
     line-height: 2;
   text-align: center;
 }
