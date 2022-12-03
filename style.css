@@ -9,7 +9,7 @@ body{
     padding: 0;
     }
 
-@media all and (orientation: landscape) { body {width: 1600px;} }
+@media all and (orientation: landscape) { body {width: 1400px;} }
     
 div {
     text-align: center;
