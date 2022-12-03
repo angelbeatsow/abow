@@ -16,7 +16,7 @@ const IDS = [
 'b31','b32','b33','b34','b35','b36'
 ]
 const sesource = [
-        '_1do.wav',
+        './_1do.wav',
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_2re.wav',
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_3mi.wav',
 	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_4fa.wav',
