@@ -7,15 +7,7 @@ const urlsToCache = [
   'main.css',
   'manifest.webmanifest',
   'abow_appicon.png',
-  'javasprict.js',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_1do.wav',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_2re.wav',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_3mi.wav',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_4fa.wav',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_5so.wav',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_6ra.wav',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_7si.wav',
-  'https://raw.githubusercontent.com/angelbeatsow/abow/main/_8do.wav'
+  'javasprict.js'
 ];
 
 self.addEventListener('install', (event) => {
