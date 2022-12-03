@@ -23,7 +23,7 @@ const sesource = [
 	'_5so.wav',
 	'_6ra.wav',
 	'_7si.wav',
-	'_8do.wav',
+	'_8do.wav'
 ]
 const startbyou = ['10','261','500','760','1048','1306','1607','2231','2512','2804','3041','3336','3561','3885','4221','4572','4891','5249','5535','5774','6024','6314','6675','7041']
 let douganumber = 0;
@@ -568,9 +568,13 @@ setTimeout(countinterval,sousajikan * 20);
 //youtube no seigyo
 var tag = document.createElement('script');
 
+if( navigator.onLine ){//online nara jikkou
       tag.src = "https://www.youtube.com/iframe_api";
+}
       var firstScriptTag = document.getElementsByTagName('script')[0];
+if( navigator.onLine ){//online nara jikkou
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
 
 var player;
       function onYouTubeIframeAPIReady() {
