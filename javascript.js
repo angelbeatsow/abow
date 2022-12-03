@@ -545,12 +545,7 @@ function tweet(){
 
 //windowアクションですよーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 window.onload = onloadAction();
-//動画が指定時間になったらシークバーを戻すsetInterval
-window.setInterval(function(){
-    if(player.getCurrentTime() > startbyou[douganumber + 1] - 3){
-         player.seekTo(startbyou[douganumber]);
-     }
-}, 1000);
+
 //カウントsetInterval　sousajikanの変更に対応するためsetTimeout
 var countinterval = function(){
     if(timeCount == true && gaugewidth != 0){
@@ -617,6 +612,17 @@ function bgmChange(){
 		alert('オフラインです。');
         }
 }
+
+
+//動画が指定時間になったらシークバーを戻すsetInterval
+window.setInterval(function(){
+	var status = player.getPlayerState();
+  if(status == 1){
+    if(player.getCurrentTime() > startbyou[douganumber + 1] - 3){
+         player.seekTo(startbyou[douganumber]);
+     }
+  }
+}, 1000);
 		
 
 //tensyon button no ivent
