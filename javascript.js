@@ -605,13 +605,19 @@ function onPlayerStateChange(event) {
 
 //ライブボタンの設定
 function bgmChange(){
+	if( navigator.onLine ){//online nara jikkou
   let select = $('bgmSelect').value
   for(let aunt = 1;aunt < 24;aunt++){
     if(select == 'm0' + aunt ||select == 'm' + aunt){
       douganumber = aunt - 1;
 	    player.seekTo(startbyou[douganumber]);
 	   }
-}}
+}
+	}else{
+		alert('オフラインです。');
+        }
+}
+		
 
 //tensyon button no ivent
 function tensyonOn(){
