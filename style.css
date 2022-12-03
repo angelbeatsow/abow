@@ -24,11 +24,6 @@ input{
     height: 250px;
 }
 
-svg {
-  width: 100%;
-  height: auto;
-}
-
 .titlemoji {
     font-size: 66px;
     font-weight: 900;
