@@ -8,7 +8,6 @@ const urlsToCache = [
   'manifest.webmanifest',
   'abow_appicon.png',
   'javasprict.js',
-  '_1do.wav','_2re.wav','_3mi.wav','_4fa.wav','_5so.wav','_6ra.wav','_7si.wav','_8do.wav'
 ];
 
 self.addEventListener('install', (event) => {
