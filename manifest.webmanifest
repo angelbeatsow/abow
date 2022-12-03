@@ -2,7 +2,7 @@
 
 {
     
-    "background_color": rgb(48, 39, 119),
+    "background_color": "#302777",
     "display": "standalone",
     "scope": "/",
     "start_url": "https://angelbeatsow.github.io/abow/",
