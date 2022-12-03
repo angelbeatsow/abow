@@ -8,6 +8,8 @@ body{
     margin: auto;
     padding: 0;
     }
+
+@media all and (orientation: landscape) { body {width: 1600px;} }
     
 div {
     text-align: center;
