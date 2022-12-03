@@ -16,14 +16,14 @@ const IDS = [
 'b31','b32','b33','b34','b35','b36'
 ]
 const sesource = [
-        'https://raw.githubusercontent.com/angelbeatsow/abow/main/_1do.wav',
-	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_2re.wav',
-	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_3mi.wav',
-	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_4fa.wav',
-	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_5so.wav',
-	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_6ra.wav',
-	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_7si.wav',
-	'https://raw.githubusercontent.com/angelbeatsow/abow/main/_8do.wav',
+        '_1do.wav',
+	'_2re.wav',
+	'_3mi.wav',
+	'_4fa.wav',
+	'_5so.wav',
+	'_6ra.wav',
+	'_7si.wav',
+	'_8do.wav',
 ]
 const startbyou = ['10','261','500','760','1048','1306','1607','2231','2512','2804','3041','3336','3561','3885','4221','4572','4891','5249','5535','5774','6024','6314','6675','7041']
 let douganumber = 0;
