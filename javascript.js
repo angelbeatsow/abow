@@ -616,12 +616,13 @@ function bgmChange(){
 
 //動画が指定時間になったらシークバーを戻すsetInterval
 window.setInterval(function(){
-	var status = player.getPlayerState();
-  if(status == 1){
+	if( navigator.onLine ){//online nara jikkou
+  if(player.getPlayerState() == 1){//saisei tyuu nara jikkou
     if(player.getCurrentTime() > startbyou[douganumber + 1] - 3){
          player.seekTo(startbyou[douganumber]);
      }
   }
+         }
 }, 1000);
 		
 
