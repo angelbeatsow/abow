@@ -39,14 +39,16 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-    .then((response) => {
-      // キャッシュ内に該当レスポンスがあれば、それを返す
-      if (response) {
-        return response;
-      }
+self.addEventListener('fetch', event => {
+  event.respondWith(async function () {
+    const req = event.request
+    if (navigator.onLine) {
+      const res = await fetch(req.clone())
+      if (res) return res
+    }
+    return caches.match(req)
+  }())
+})
 
       // 重要：リクエストを clone する。リクエストは Stream なので
       // 一度しか処理できない。ここではキャッシュ用、fetch 用と2回
