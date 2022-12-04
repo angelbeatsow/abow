@@ -564,13 +564,10 @@ setTimeout(countinterval,sousajikan * 20);
 //youtube no seigyo
 var tag = document.createElement('script');
 
-if( navigator.onLine ){//online nara jikkou
       tag.src = "https://www.youtube.com/iframe_api";
-}
       var firstScriptTag = document.getElementsByTagName('script')[0];
-if( navigator.onLine ){//online nara jikkou
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
+
 
 var player;
       function onYouTubeIframeAPIReady() {
