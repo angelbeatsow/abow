@@ -15,27 +15,28 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     // キャッシュを開く
     caches.open(CACHE_NAME)
-    .then((cache) => {
+    .then(async function (cache) {
+      skipWaiting();
       // 指定されたファイルをキャッシュに追加する
-      return cache.addAll(urlsToCache);
+      cache.addAll(urlsToCache);
     })
   );
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", function (event) {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return cacheNames.filter((cacheName) => {
-        // このスコープに所属していて且つCACHE_NAMEではないキャッシュを探す
-        return cacheName.startsWith(`${registration.scope}!`) &&
-               cacheName !== CACHE_NAME;
+    (function () {
+      caches.keys().then(function (oldCacheKeys) {
+        oldCacheKeys
+          .filter(function (key) {
+            return key !== CACHE_NAME;
+          })
+          .map(function (key) {
+            return caches.delete(key);
+          });
       });
-    }).then((cachesToDelete) => {
-      return Promise.all(cachesToDelete.map((cacheName) => {
-        // いらないキャッシュを削除する
-        return caches.delete(cacheName);
-      }));
-    })
+      clients.claim();
+    })()
   );
 });
 
