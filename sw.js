@@ -5,8 +5,9 @@ const CACHE_NAME = `${registration.scope}!${CACHE_VERSION}`;
 const urlsToCache = [
   'index.html',
   'main.css',
-  'manifest.webmanifest',
+  'manifest.json',
   'abow_appicon.png',
+  'abow_appicon_128.png',
   'javasprict.js'
 ];
 
