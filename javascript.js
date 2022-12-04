@@ -715,6 +715,17 @@ function tensyonAction(event){
      }
        setTimeout(function(){
           clickendAction();
+	       
+	       //se no syori
+	       if( navigator.onLine ){//online nara jikkou
+               console.log('se effect!')
+               	var audio = new Audio;
+               	audio.src = 'https://raw.githubusercontent.com/angelbeatsow/abow/main/koukaon_tensyongeshi.wav';
+		audio.volume = $('volrange').value / 10;
+                audio.autoplay = true;
+                audio.load();}
+                 //se no syori owari
+	       
          if(gaugewidth != 0){
           for(let row=0;row < 36;row++){
             $(IDS[row]).addEventListener('touchstart',tensyonAction,{ passive: true });
