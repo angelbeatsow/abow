@@ -963,8 +963,8 @@ function gachaGamen(){
 //hukkatsu no jumon seisei
 function u63(number){
 let nu = number;
-while(nu > 64 || nu < 0){
-  if(number > 64){
+while(nu > 63 || nu < 0){
+  if(number > 63){
     nu = nu - 64;
   }else if(number < 0){
     nu = nu + 64;
