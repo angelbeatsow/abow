@@ -1095,7 +1095,7 @@ function jumonYomikomi(){
   isTensityan = false;
   $('jumonNyuuryoku').value = '';
   for(let b = 0; b < 3;b++){
-     for(let bp = 0;bp < 4;bp++;){
+     for(let bp = 0;bp < 4;bp++){
         syojiCard[b][bp] = syojiCardx[b][bp];
      }
   }
