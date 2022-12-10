@@ -977,6 +977,7 @@ function hukkatsuSeisei(){
   syojiCardR[3] = (syojiCardR[3] | 0b10000) ^ 0b10000;
   syojiCardSR[3] = (syojiCardSR[3] | 0b10000) ^ 0b10000;
   syojiCardSSR[3] = (syojiCardSSR[3] | 0b10000) ^ 0b10000;
+  let syoukei = syojiCardR[3] + syojiCardSR[3] + syojiCardSSR[3];
   //check1 wo ireru
   syojiCardR[3] = syojiCardR[3] | ((check1 << 2) & 0b10000);
   syojiCardSR[3] = syojiCardSR[3] | ((check1 << 3) & 0b010000);
@@ -990,7 +991,10 @@ function hukkatsuSeisei(){
   checkCode[2] = check4;
   
   let jumonMojiN = [];
-  jumonMojiN[0] = Math.floor( Math.random() * 64);
+  syoukei = syoukei + syojiCardR[0] + syojiCardR[1] + syojiCardR[2];
+  syoukei = syoukei + syojiCardSR[0] + syojiCardSR[1] + syojiCardSR[2];
+  syoukei = syoukei + syojiCardSSR[0] + syojiCardSSR[1] + syojiCardSSR[2];
+  jumonMojiN[0] = syoukei % 32;
   jumonMojiN[1] = u63(jumonMojiN[0] + syojiCardR[0] + 11);
   jumonMojiN[2] = u63(jumonMojiN[1] + syojiCardR[1] + 11);
   jumonMojiN[3] = u63(jumonMojiN[2] + syojiCardR[2] + 11);
@@ -1047,20 +1051,25 @@ function jumonYomikomi(){
   let check3 = u63(jumonMojiN[10] - jumonMojiN[9]);
   let check4 = u63(jumonMojiN[15] - jumonMojiN[14]);
   
+  let syojiCardRx = [];
+  let syojiCardSRx = [];
+  let syojiCardSSRx = [];
+  let syojiCardx = [syojiCardRx,syojiCardSRx,syojiCardSSRx] ;
+  
   //yomikomu
-  syojiCardR[0] = u63(jumonMojiN[1] - jumonMojiN[0] - 11);
-  syojiCardR[1] = u63(jumonMojiN[2] - jumonMojiN[1] - 11);
-  syojiCardR[2] = u63(jumonMojiN[3] - jumonMojiN[2] - 11);
-  syojiCardR[3] = u63(jumonMojiN[4] - jumonMojiN[3]);
-  syojiCardSR[0] = u63(jumonMojiN[6] - jumonMojiN[5] - 11);
-  syojiCardSR[1] = u63(jumonMojiN[7] - jumonMojiN[6] - 11);
-  syojiCardSR[2] = u63(jumonMojiN[8] - jumonMojiN[7] - 11);
-  syojiCardSR[3] = u63(jumonMojiN[9] - jumonMojiN[8]);
-  syojiCardSSR[0] = u63(jumonMojiN[11] - jumonMojiN[10] - 11);
-  syojiCardSSR[1] = u63(jumonMojiN[12] - jumonMojiN[11] - 11);
-  syojiCardSSR[2] = u63(jumonMojiN[13] - jumonMojiN[12] - 11);
-  syojiCardSSR[3] = u63(jumonMojiN[14] - jumonMojiN[13]);
-  console.log(syojiCard);
+  syojiCardRx[0] = u63(jumonMojiN[1] - jumonMojiN[0] - 11);
+  syojiCardRx[1] = u63(jumonMojiN[2] - jumonMojiN[1] - 11);
+  syojiCardRx[2] = u63(jumonMojiN[3] - jumonMojiN[2] - 11);
+  syojiCardRx[3] = u63(jumonMojiN[4] - jumonMojiN[3]);
+  syojiCardSRx[0] = u63(jumonMojiN[6] - jumonMojiN[5] - 11);
+  syojiCardSRx[1] = u63(jumonMojiN[7] - jumonMojiN[6] - 11);
+  syojiCardSRx[2] = u63(jumonMojiN[8] - jumonMojiN[7] - 11);
+  syojiCardSRx[3] = u63(jumonMojiN[9] - jumonMojiN[8]);
+  syojiCardSSRx[0] = u63(jumonMojiN[11] - jumonMojiN[10] - 11);
+  syojiCardSSRx[1] = u63(jumonMojiN[12] - jumonMojiN[11] - 11);
+  syojiCardSSRx[2] = u63(jumonMojiN[13] - jumonMojiN[12] - 11);
+  syojiCardSSRx[3] = u63(jumonMojiN[14] - jumonMojiN[13]);
+  console.log(syojiCardx);
   console.log('check1:' + check1 + ',check2:' + check2 + ',check3:' + check3 +',check4:' + check4);
    if((check2+check3) % 8 != check1 ){
      alert('じゅもんが間違っています。a');
@@ -1070,10 +1079,27 @@ function jumonYomikomi(){
     alert('じゅもんが間違っています。b');
       return;
    }
+   syojiCardRx[3] = (syojiCardRx[3] | 0b10000) ^ 0b10000;
+   syojiCardSRx[3] = (syojiCardSRx[3] | 0b10000) ^ 0b10000;
+   syojiCardSSRx[3] = (syojiCardSSRx[3] | 0b10000) ^ 0b10000;
+   let syoukei = syojiCardRx[0] + syojiCardRx[1] + syojiCardRx[2] + syojiCardRx[3] +
+                 syojiCardSRx[0] + syojiCardSRx[1] + syojiCardSRx[2] + syojiCardSRx[3] +
+                 syojiCardSSRx[0] + syojiCardSSRx[1] + syojiCardSSRx[2] + syojiCardSSRx[3] ;
+   if(jumonMojiN[0] != syoukei % 32){
+      alert('じゅもんが間違っています。c');
+      return;
+   }
+   
 
   alert('読み込みました!');
   isTensityan = false;
   $('jumonNyuuryoku').value = '';
+  for(let b = 0; b < 3;b++){
+     for(let bp = 0;bp < 4;bp++;){
+        syojiCard[b][bp] = syojiCardx[b][bp];
+     }
+  }
+  
   
   //library ni hanei
   for(let a = 0; a < 3;a++){  //R,SR,SSR
