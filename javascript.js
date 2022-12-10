@@ -1077,7 +1077,7 @@ function jumonYomikomi(){
      alert('じゅもんが間違っています。a');
      return;
    }
-  if(check4 != u63(check1 * check2 * check3){
+  if(check4 != u63(check1 * check2 * check3)){
     alert('じゅもんが間違っています。b');
       return;
    }
