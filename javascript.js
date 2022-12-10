@@ -1087,7 +1087,7 @@ function jumonYomikomi(){
    let syoukei = syojiCardRx[0] * 2 + syojiCardRx[1] * 3 + syojiCardRx[2] * 4 + syojiCardRx[3] * 5 +
                  syojiCardSRx[0] * 2 + syojiCardSRx[1] * 3 + syojiCardSRx[2] * 4 + syojiCardSRx[3] * 5 +
                  syojiCardSSRx[0] * 2+ syojiCardSSRx[1] * 3 + syojiCardSSRx[2] * 4 + syojiCardSSRx[3] * 5 ;
-console.log(syoukei + ',一文字目:' + jumonMojiN[0] );
+console.log(syoukei % 64 + ',一文字目:' + jumonMojiN[0] );
    if(jumonMojiN[0] != syoukei % 64){
       alert('じゅもんが間違っています。c');
       return;
