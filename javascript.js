@@ -994,7 +994,7 @@ function hukkatsuSeisei(){
   syoukei = syoukei + syojiCardR[0] + syojiCardR[1] + syojiCardR[2];
   syoukei = syoukei + syojiCardSR[0] + syojiCardSR[1] + syojiCardSR[2];
   syoukei = syoukei + syojiCardSSR[0] + syojiCardSSR[1] + syojiCardSSR[2];
-  jumonMojiN[0] = (syoukei * 7) % 64;
+  jumonMojiN[0] = syoukei % 64;
   jumonMojiN[1] = u63(jumonMojiN[0] + syojiCardR[0] + 11);
   jumonMojiN[2] = u63(jumonMojiN[1] + syojiCardR[1] + 11);
   jumonMojiN[3] = u63(jumonMojiN[2] + syojiCardR[2] + 11);
@@ -1016,7 +1016,7 @@ function hukkatsuSeisei(){
               jumonMoji[jumonMojiN[9]] + jumonMoji[jumonMojiN[10]] + jumonMoji[jumonMojiN[11]] + 
               jumonMoji[jumonMojiN[12]] + jumonMoji[jumonMojiN[13]] + jumonMoji[jumonMojiN[14]] + 
               jumonMoji[jumonMojiN[15]];
-  console.log(syojiCard);
+  console.log(syojiCardR +',' + syojiCardSR + ',' + syojiCardSSR);
   console.log('check1:' + check1 + ',check2:' + check2 + ',check3:' + check3 +',check4:' + check4);
 
   $('jumon').innerHTML = jumon;
@@ -1069,7 +1069,7 @@ function jumonYomikomi(){
   syojiCardSSRx[1] = u63(jumonMojiN[12] - jumonMojiN[11] - 11);
   syojiCardSSRx[2] = u63(jumonMojiN[13] - jumonMojiN[12] - 11);
   syojiCardSSRx[3] = u63(jumonMojiN[14] - jumonMojiN[13]);
-  console.log(syojiCardx);
+  console.log(syojiCardRx +',' + syojiCardSRx + ',' + syojiCardSSRx );
   console.log('check1:' + check1 + ',check2:' + check2 + ',check3:' + check3 +',check4:' + check4);
    if((check2+check3) % 8 != check1 ){
      alert('じゅもんが間違っています。a');
@@ -1085,7 +1085,8 @@ function jumonYomikomi(){
    let syoukei = syojiCardRx[0] + syojiCardRx[1] + syojiCardRx[2] + syojiCardRx[3] +
                  syojiCardSRx[0] + syojiCardSRx[1] + syojiCardSRx[2] + syojiCardSRx[3] +
                  syojiCardSSRx[0] + syojiCardSSRx[1] + syojiCardSSRx[2] + syojiCardSSRx[3] ;
-   if(jumonMojiN[0] != (syoukei * 7) % 64){
+console.log(syoukei + ',一文字目:' + jumonMojiN[0] );
+   if(jumonMojiN[0] != syoukei % 64){
       alert('じゅもんが間違っています。c');
       return;
    }
