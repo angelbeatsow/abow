@@ -962,13 +962,15 @@ function gachaGamen(){
 
 //hukkatsu no jumon seisei
 function u63(number){
-  if(number > 63){
-    return number - 64;
+let nu = number;
+wile(nu > 64 || nu < 0){
+  if(number > 64){
+    nu = nu - 64;
   }else if(number < 0){
-    return number + 64;
-  }else{
-    return number;
+    nu = nu + 64;
   }
+}
+    return nu;
 }
 
 function hukkatsuSeisei(){
@@ -977,7 +979,7 @@ function hukkatsuSeisei(){
   syojiCardR[3] = (syojiCardR[3] | 0b10000) ^ 0b10000;
   syojiCardSR[3] = (syojiCardSR[3] | 0b10000) ^ 0b10000;
   syojiCardSSR[3] = (syojiCardSSR[3] | 0b10000) ^ 0b10000;
-  let syoukei = syojiCardR[3] + syojiCardSR[3] + syojiCardSSR[3];
+  let syoukei = 5 * (syojiCardR[3] + syojiCardSR[3] + syojiCardSSR[3]);
   //check1 wo ireru
   syojiCardR[3] = syojiCardR[3] | ((check1 << 2) & 0b10000);
   syojiCardSR[3] = syojiCardSR[3] | ((check1 << 3) & 0b010000);
@@ -991,9 +993,9 @@ function hukkatsuSeisei(){
   checkCode[2] = check4;
   
   let jumonMojiN = [];
-  syoukei = syoukei + syojiCardR[0] + syojiCardR[1] + syojiCardR[2];
-  syoukei = syoukei + syojiCardSR[0] + syojiCardSR[1] + syojiCardSR[2];
-  syoukei = syoukei + syojiCardSSR[0] + syojiCardSSR[1] + syojiCardSSR[2];
+  syoukei = syoukei + syojiCardR[0] * 2 + syojiCardR[1] * 3 + syojiCardR[2] * 4;
+  syoukei = syoukei + syojiCardSR[0] * 2 + syojiCardSR[1] * 3 + syojiCardSR[2] * 4;
+  syoukei = syoukei + syojiCardSSR[0] * 2 + syojiCardSSR[1] * 3 + syojiCardSSR[2] * 4;
   jumonMojiN[0] = syoukei % 64;
   jumonMojiN[1] = u63(jumonMojiN[0] + syojiCardR[0] + 11);
   jumonMojiN[2] = u63(jumonMojiN[1] + syojiCardR[1] + 11);
@@ -1082,9 +1084,9 @@ function jumonYomikomi(){
    syojiCardRx[3] = (syojiCardRx[3] | 0b10000) ^ 0b10000;
    syojiCardSRx[3] = (syojiCardSRx[3] | 0b10000) ^ 0b10000;
    syojiCardSSRx[3] = (syojiCardSSRx[3] | 0b10000) ^ 0b10000;
-   let syoukei = syojiCardRx[0] + syojiCardRx[1] + syojiCardRx[2] + syojiCardRx[3] +
-                 syojiCardSRx[0] + syojiCardSRx[1] + syojiCardSRx[2] + syojiCardSRx[3] +
-                 syojiCardSSRx[0] + syojiCardSSRx[1] + syojiCardSSRx[2] + syojiCardSSRx[3] ;
+   let syoukei = syojiCardRx[0] * 2 + syojiCardRx[1] * 3 + syojiCardRx[2] * 4 + syojiCardRx[3] * 5 +
+                 syojiCardSRx[0] * 2 + syojiCardSRx[1] * 3 + syojiCardSRx[2] * 4 + syojiCardSRx[3] * 5 +
+                 syojiCardSSRx[0] * 2+ syojiCardSSRx[1] * 3 + syojiCardSSRx[2] * 4 + syojiCardSSRx[3] * 5 ;
 console.log(syoukei + ',一文字目:' + jumonMojiN[0] );
    if(jumonMojiN[0] != syoukei % 64){
       alert('じゅもんが間違っています。c');
