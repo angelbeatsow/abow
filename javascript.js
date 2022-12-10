@@ -989,7 +989,7 @@ function hukkatsuSeisei(){
   let check3 = 8 * (Math.floor( Math.random() * 2) + 4) + check1 - check2; //(check2+check3)%8=check1
   if(check3 > 32){check3 = check3 - 8 * (Math.floor( Math.random() * 3) + 2);}
   checkCode[1] = check3;
-  let check4 = (check1 * check2 * check3)% 33;
+  let check4 = check1 * check2 * check3;
   checkCode[2] = check4;
   
   let jumonMojiN = [];
@@ -1077,7 +1077,7 @@ function jumonYomikomi(){
      alert('じゅもんが間違っています。a');
      return;
    }
-  if(check4 != (check1 * check2 * check3)% 33){
+  if(check4 != u63(check1 * check2 * check3){
     alert('じゅもんが間違っています。b');
       return;
    }
