@@ -994,7 +994,7 @@ function hukkatsuSeisei(){
   syoukei = syoukei + syojiCardR[0] + syojiCardR[1] + syojiCardR[2];
   syoukei = syoukei + syojiCardSR[0] + syojiCardSR[1] + syojiCardSR[2];
   syoukei = syoukei + syojiCardSSR[0] + syojiCardSSR[1] + syojiCardSSR[2];
-  jumonMojiN[0] = syoukei % 32;
+  jumonMojiN[0] = (syoukei * 7) % 64;
   jumonMojiN[1] = u63(jumonMojiN[0] + syojiCardR[0] + 11);
   jumonMojiN[2] = u63(jumonMojiN[1] + syojiCardR[1] + 11);
   jumonMojiN[3] = u63(jumonMojiN[2] + syojiCardR[2] + 11);
@@ -1085,7 +1085,7 @@ function jumonYomikomi(){
    let syoukei = syojiCardRx[0] + syojiCardRx[1] + syojiCardRx[2] + syojiCardRx[3] +
                  syojiCardSRx[0] + syojiCardSRx[1] + syojiCardSRx[2] + syojiCardSRx[3] +
                  syojiCardSSRx[0] + syojiCardSSRx[1] + syojiCardSSRx[2] + syojiCardSSRx[3] ;
-   if(jumonMojiN[0] != syoukei % 32){
+   if(jumonMojiN[0] != (syoukei * 7) % 64){
       alert('じゅもんが間違っています。c');
       return;
    }
