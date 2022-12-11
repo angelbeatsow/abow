@@ -254,6 +254,7 @@ input[value='ライブ']{
 }
 #popupimg{
   height: 70vh;
+  width: auto;
 }
 
 .close-btn {
