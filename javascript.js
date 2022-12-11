@@ -805,7 +805,7 @@ function gachaStart(){
   //nyuusyu card no kettei
   var random = Math.floor( Math.random() * 100) + 1; //1~100 no ransuu
   if(random <= 85){ //R card
-    getCardId[0] = 'R';
+    getCardId[0] = 'r';
     getCardId[1] = Math.floor( Math.random() * cardNameR.length);
     console.log((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) + '<<0:this is new.,1:this is not new.');
     if((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5)))?1:0){
@@ -815,7 +815,7 @@ function gachaStart(){
     syojiCardR[ Math.floor( getCardId[1] / 5)] = syojiCardR[ Math.floor( getCardId[1] / 5)] | (one << (getCardId[1] % 5));
   }else if(random <= 97){//SR card
     $('uramen').src = 'uramen_sample2.png';
-    getCardId[0] = 'SR';
+    getCardId[0] = 'sr';
     getCardId[1] = Math.floor( Math.random() * cardNameSR.length);
     if((syojiCardSR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5)))?1:0){
       isNewCard = false;
@@ -824,7 +824,7 @@ function gachaStart(){
     syojiCardSR[ Math.floor( getCardId[1] / 5)] = syojiCardSR[ Math.floor( getCardId[1] / 5)] | (one << (getCardId[1] % 5));
   }else{//SSR card
     $('uramen').src = 'uramen_sample2.png';
-    getCardId[0] = 'SSR';
+    getCardId[0] = 'ssr';
     getCardId[1] = Math.floor( Math.random() * cardNameSSR.length);
     if((syojiCardSSR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5)))?1:0){
       isNewCard = false;
@@ -1112,24 +1112,26 @@ console.log(syoukei % 64 + ',一文字目:' + jumonMojiN[0] );
           break;
         }
         if((syojiCard[a][ap] & (0b00001 << app))?1:0){
-          let rearity = 'R';
+          let rearity = 'r';
           let divid = app + ap * 5 + 1;
           if(a == 1){
-            rearity = 'SR'
+            rearity = 'sr'
             divid = divid + cardName[0].length;
           }else if(a == 2){
-            rearity = 'SSR'
+            rearity = 'ssr'
             divid = divid + cardName[0].length + cardName[1].length;
           }
           if(divid < 10){
+            divid = '00' + divid;
+          }else if(divid < 100){
             divid = '0' + divid;
           }
-          $('c0' + divid + 'img').classList.add('syoji');
-          $('c0' + divid + 'img').src = 'cardicon_' + rearity + (app + ap * 5) + '.png';
-          $('c0' + divid + 'img').onerror = function(){
-            $('c0' + divid + 'img').src = 'cardicon_sample.png';
+          $('c' + divid + 'img').classList.add('syoji');
+          $('c' + divid + 'img').src = 'cardicon_' + rearity + (app + ap * 5) + '.png';
+          $('c' + divid + 'img').onerror = function(){
+            $('c' + divid + 'img').src = 'cardicon_sample.png';
           };
-          $('c0' + divid + 'text').innerHTML = cardName[a][app + ap * 5];
+          $('c' + divid + 'text').innerHTML = cardName[a][app + ap * 5];
         }
       }
     }
@@ -1141,13 +1143,13 @@ console.log(syoukei % 64 + ',一文字目:' + jumonMojiN[0] );
 function kobetsuHanei(){
   let rearity ;
   let divid = getCardId[1] + 1;
-  if(getCardId[0] == 'SSR'){
+  if(getCardId[0] == 'ssr'){
     rearity = 2;
     divid = divid + cardNameR.length + cardNameSR.length ;
-  }else if(getCardId[0] == 'SR'){
+  }else if(getCardId[0] == 'sr'){
     rearity = 1;
     divid = divid + cardNameR.length ;
-  }else if(getCardId[0] == 'R'){
+  }else if(getCardId[0] == 'r'){
     rearity = 0;
   }
   //librarydiv ni class wo tsuika (click event no tame)
@@ -1192,17 +1194,17 @@ function popUpOpen(e){
   //card gazou no syutoku
   const eId = e.target.id;
   let eNu = parseInt(eId.replace(/[^0-9]/g, ""));
-  let rearity = 'R';
+  let rearity = 'r';
   console.log(eNu);
   if(eNu > cardNameR.length + cardNameSR.length){
     eNu = eNu - cardNameR.length - cardNameSR.length - 1;
-    rearity = 'SSR';
+    rearity = 'ssr';
   }else if(eNu > cardNameR.length){
     eNu = eNu - cardNameR.length - 1;
-    rearity = 'SR';
+    rearity = 'sr';
   }else{
     eNu = eNu - 1;
-    rearity = 'R';
+    rearity = 'r';
   }
   $('popupimg').src = 'card_' + rearity + eNu + '.png';
   $('popupimg').onerror = function(){
