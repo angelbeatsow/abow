@@ -808,7 +808,7 @@ function gachaStart(){
     getCardId[0] = 'r';
     getCardId[1] = Math.floor( Math.random() * cardNameR.length);
     console.log((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) + '<<0:this is new.,1:this is not new.');
-    if((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5)))?1:0){
+    if( (syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) == one << (getCardId[1] % 5) ){
       isNewCard = false;
     }else{ isNewCard = true;
     }
@@ -817,7 +817,7 @@ function gachaStart(){
     $('uramen').src = 'uramen_sample2.png';
     getCardId[0] = 'sr';
     getCardId[1] = Math.floor( Math.random() * cardNameSR.length);
-    if((syojiCardSR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5)))?1:0){
+    if( (syojiCardSR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) == one << (getCardId[1] % 5) ){
       isNewCard = false;
     }else{ isNewCard = true;
     }
@@ -826,7 +826,7 @@ function gachaStart(){
     $('uramen').src = 'uramen_sample2.png';
     getCardId[0] = 'ssr';
     getCardId[1] = Math.floor( Math.random() * cardNameSSR.length);
-    if((syojiCardSSR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5)))?1:0){
+    if( (syojiCardSSR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) == one << (getCardId[1] % 5) ){
       isNewCard = false;
     }else{ isNewCard = true;
     }
