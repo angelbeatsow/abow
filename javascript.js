@@ -807,12 +807,10 @@ function gachaStart(){
   if(random <= 85){ //R card
     getCardId[0] = 'r';
     getCardId[1] = Math.floor( Math.random() * cardNameR.length);
-    console.log((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) + '(0:this is new.,else:this is not new.)');
+    console.log((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) + '(0:this is new.,others:this is not new.)');
     if( (syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) == one << (getCardId[1] % 5) ){
       isNewCard = false;
-    }else{
-    console.laterg((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) +'and'+ one << (getCardId[1] % 5) );
-    isNewCard = true;
+    }else{ isNewCard = true;
     }
     syojiCardR[ Math.floor( getCardId[1] / 5)] = syojiCardR[ Math.floor( getCardId[1] / 5)] | (one << (getCardId[1] % 5));
   }else if(random <= 97){//SR card
@@ -1108,12 +1106,12 @@ console.log(syoukei % 64 + ',一文字目:' + jumonMojiN[0] );
   
   //library ni hanei
   for(let a = 0; a < 3;a++){  //R,SR,SSR
-    for(let ap = 0;ap < syojiCard[a].length;ap++){ //juon1moji=5Card, mojisuu bun no syori
+    for(let ap = 0;ap < syojiCard[a].length;ap++){ //jumon1moji=5Card, mojisuu bun no syori
       for(let app = 0;app < 5;app++){  //jumon1moji no naka no 5Card
         if(ap == 3 && app == 4){//koko ha checkCode
           break;
         }
-        if((syojiCard[a][ap] & (0b00001 << app))?1:0){
+        if((syojiCard[a][ap] & (0b00001 << app))?1:0){  //所持
           let rearity = 'r';
           let divid = app + ap * 5 + 1;
           if(a == 1){
@@ -1134,7 +1132,23 @@ console.log(syoukei % 64 + ',一文字目:' + jumonMojiN[0] );
             $('c' + divid + 'img').src = 'cardicon_sample.png';
           };
           $('c' + divid + 'text').innerHTML = cardName[a][app + ap * 5];
-        }
+	  
+        }else{  //未所持
+          let divid = app + ap * 5 + 1;
+          if(a == 1){
+            divid = divid + cardName[0].length;
+          }else if(a == 2){
+            divid = divid + cardName[0].length + cardName[1].length;
+          }
+          if(divid < 10){
+            divid = '00' + divid;
+          }else if(divid < 100){
+            divid = '0' + divid;
+          }
+          $('c' + divid + 'img').classList.remove('syoji');
+          $('c' + divid + 'img').src = "cardicon_sample.png";
+          $('c' + divid + 'text').innerHTML = '???';
+	}
       }
     }
   }
@@ -1143,6 +1157,10 @@ console.log(syoukei % 64 + ',一文字目:' + jumonMojiN[0] );
 
 //kobetsu library hanei
 function kobetsuHanei(){
+  let newMoji = '  *new*';
+  if(isNewCard == false){
+    newMoji = '';
+  }
   let rearity ;
   let divid = getCardId[1] + 1;
   if(getCardId[0] == 'ssr'){
@@ -1163,21 +1181,21 @@ function kobetsuHanei(){
     $('c00' + divid + 'img').onerror = function(){
       $('c00' + divid + 'img').src = 'cardicon_sample.png';
     };
-    $('c00' + divid + 'text').innerHTML = cardName[rearity][getCardId[1]] + '  *new*';
+    $('c00' + divid + 'text').innerHTML = cardName[rearity][getCardId[1]] + newMoji;
   }else if(divid < 100){
     $('c0' + divid + 'img').classList.add('syoji');
     $('c0' + divid + 'img').src = 'cardicon_' + getCardId[0] + getCardId[1] + '.png';
     $('c0' + divid + 'img').onerror = function(){
       $('c0' + divid + 'img').src = 'cardicon_sample.png';
     };
-    $('c0' + divid + 'text').innerHTML = cardName[rearity][getCardId[1]] + '  *new*';
+    $('c0' + divid + 'text').innerHTML = cardName[rearity][getCardId[1]] + newMoji;
   }else if(divid < 1000){
     $('c' + divid + 'img').classList.add('syoji');
     $('c' + divid + 'img').src = 'cardicon_' + getCardId[0] + getCardId[1] + '.png';
     $('c' + divid + 'img').onerror = function(){
       $('c' + divid + 'img').src = 'cardicon_sample.png';
     };
-    $('c' + divid + 'text').innerHTML = cardName[rearity][getCardId[1]] + '  *new*';
+    $('c' + divid + 'text').innerHTML = cardName[rearity][getCardId[1]] + newMoji;
   }
   $('tapMessage').innerHTML = cardName[rearity][getCardId[1]];  //-TAP- no moji wo cardName ni sitemiru
 }
