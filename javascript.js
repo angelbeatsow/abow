@@ -807,10 +807,12 @@ function gachaStart(){
   if(random <= 85){ //R card
     getCardId[0] = 'r';
     getCardId[1] = Math.floor( Math.random() * cardNameR.length);
-    console.log((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) + '<<0:this is new.,1:this is not new.');
+    console.log((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) + '(0:this is new.,else:this is not new.)');
     if( (syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) == one << (getCardId[1] % 5) ){
       isNewCard = false;
-    }else{ isNewCard = true;
+    }else{
+    console.laterg((syojiCardR[ Math.floor( getCardId[1] / 5)] & (one << (getCardId[1] % 5))) +'and'+ one << (getCardId[1] % 5) );
+    isNewCard = true;
     }
     syojiCardR[ Math.floor( getCardId[1] / 5)] = syojiCardR[ Math.floor( getCardId[1] / 5)] | (one << (getCardId[1] % 5));
   }else if(random <= 97){//SR card
