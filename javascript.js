@@ -615,16 +615,18 @@ setTimeout(countinterval,sousajikan * 20);
 
 
 
-if( readYoutubeMovie ){//readYoutubeMovieの判定
 //youtube no seigyo
 var tag = document.createElement('script');
 
+if( readYoutubeMovie ){//readYoutubeMovieの判定
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
 
 
 var player;
+if( readYoutubeMovie ){//readYoutubeMovieの判定
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('umekomidouga', {
 		playerVars: {
@@ -637,22 +639,29 @@ var player;
                 }
         });
       }
+}
 
 function onPlayerReady(event) {
+	if( readYoutubeMovie ){//readYoutubeMovieの判定
         player.cueVideoById({'videoId':'JMzDWbqROT4',
 			     'startSeconds': 10
    });
+	}
       }
 
 function onPlayerStateChange(event) {
+	if( readYoutubeMovie ){//readYoutubeMovieの判定
    if (event.data == 0) {
        player.seekTo(startbyou[douganumber]);
        event.target.playVideo();
    }
+	}
 }
 
 //ライブボタンの設定
 function bgmChange(){
+if( readYoutubeMovie ){//readYoutubeMovieの判定
+	
 	if( navigator.onLine ){//online nara jikkou
   let select = $('bgmSelect').value;
   for(let aunt = 1;aunt < 24;aunt++){
@@ -664,10 +673,15 @@ function bgmChange(){
 	}else{
 		alert('オフラインです。');
         }
+
+}else{
+	alert('現在、動画の再生は制限されています。');
+}
 }
 
 
 //動画が指定時間になったらシークバーを戻すsetInterval
+if( readYoutubeMovie ){//readYoutubeMovieの判定
 window.setInterval(function(){
 	if( navigator.onLine ){//online nara jikkou
   if(player.getPlayerState() == 1){//saisei tyuu nara jikkou
@@ -677,13 +691,9 @@ window.setInterval(function(){
   }
          }
 }, 1000);
-
-}else {//readYoutubeMovieの判定ここまで
-  //ライブボタンの設定
-  function bgmChange(){
-	alert('現在、動画の再生は制限されています。');
-  }
 }
+
+
 		
 
 //tensyon button no ivent
