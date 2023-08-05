@@ -1,3 +1,4 @@
+const readYoutubeMovie = false;  //youtube動画を読み込むかどうか
 
 const fire = 'f';
 const water = 'w';
@@ -614,6 +615,7 @@ setTimeout(countinterval,sousajikan * 20);
 
 
 
+if( readYoutubeMovie ){//readYoutubeMovieの判定
 //youtube no seigyo
 var tag = document.createElement('script');
 
@@ -675,6 +677,13 @@ window.setInterval(function(){
   }
          }
 }, 1000);
+
+}else {//readYoutubeMovieの判定ここまで
+  //ライブボタンの設定
+  function bgmChange(){
+	alert('現在、動画の再生は制限されています。');
+  }
+}
 		
 
 //tensyon button no ivent
