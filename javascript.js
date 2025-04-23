@@ -593,7 +593,7 @@ function tweet(){
 	                  '最大コンボ数:' + saidaiCombo + 'コンボ(平均:' + $('sensekiComboHeikin').innerHTML +'コンボ)%0a' +
                   'ハイテンション:' + tensyonKaisuu + '回%0a' +
 	                  'ABOW(仮)';
-	window.open('https://twitter.com/share?text=' + dataText + '&url=https://angelbeatsow.github.io/abow/&hashtags=ABOW_仮');
+	window.open('https://x.com/intent/tweet?text=' + dataText + '&url=https://angelbeatsow.github.io/abow/&hashtags=ABOW_仮');
 }
 
 
